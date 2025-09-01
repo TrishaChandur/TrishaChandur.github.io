@@ -1,283 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Trisha Chandur — Portfolio</title>
-<meta name="description" content="Business Analytics • Automation • Machine Learning" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#2b2f45; --muted:#647196; --bg:#f6f7fb; --white:#ffffff;
-    --brand:#6b5ae0; --blue1:#7C8CF7; --blue2:#6EA0F7; --violet:#8261C7;
-    --line:#e8e9f1; --shadow:0 12px 28px rgba(0,0,0,.12);
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);scroll-behavior:smooth}
-  a{color:var(--brand);text-decoration:none}
-  /* NAVBAR */
-  header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;z-index:30}
-  .nav{max-width:1200px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
-  .brand{font-weight:800;font-size:20px;color:var(--brand)}
-  .links{display:flex;gap:28px}
-  .links a{color:#2f3355;position:relative}
-  .links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:3px;background:var(--brand);border-radius:2px}
-  /* HERO */
-  .hero{position:relative;color:#fff;text-align:center;padding:120px 20px 90px;overflow:hidden;
-    background:
-      radial-gradient(1200px 500px at 50% -60%, rgba(255,255,255,.22), transparent 60%),
-      linear-gradient(135deg,var(--blue1) 0%,var(--blue2) 100%);
-  }
-  .dots{position:absolute;left:0;right:0;top:58%;height:2px;opacity:.75}
-  .dots>div{max-width:1100px;margin:0 auto;height:2px;background:
-      radial-gradient(circle at 5% 50%, rgba(255,255,255,.65) 2px, transparent 3px),
-      radial-gradient(circle at 20% 50%, rgba(255,255,255,.45) 2px, transparent 3px),
-      radial-gradient(circle at 35% 50%, rgba(255,255,255,.65) 2px, transparent 3px),
-      radial-gradient(circle at 60% 50%, rgba(255,255,255,.45) 2px, transparent 3px),
-      radial-gradient(circle at 78% 50%, rgba(255,255,255,.65) 2px, transparent 3px),
-      radial-gradient(circle at 92% 50%, rgba(255,255,255,.45) 2px, transparent 3px);}
-  .ring{display:inline-block;padding:10px;border-radius:50%;background:linear-gradient(145deg,#E8EBFF,#FFFFFF33);box-shadow:0 8px 24px rgba(0,0,0,.25)}
-  .avatar{width:170px;height:170px;border-radius:50%;object-fit:cover;border:6px solid #fff}
-  .title{font-size:64px;line-height:1.06;margin:18px 0 10px;text-shadow:0 6px 18px rgba(0,0,0,.25)}
-  .roles{font-size:22px;margin:6px 0 18px;opacity:.97}
-  .lead{max-width:820px;margin:0 auto 26px;font-size:19px;line-height:1.72;opacity:.96}
-  .cta{display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
-  .pill{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:800}
-  .primary{background:#fff;color:#3956d8;box-shadow:0 6px 18px rgba(0,0,0,.15)}
-  .ghost{background:transparent;border:2px solid #fff;color:#fff}
-  /* SECTIONS WRAPPER */
-  .section{max-width:1150px;margin:0 auto;padding:70px 20px}
-  h2.heading{font-size:40px;color:var(--brand);text-align:center;margin:0 0 26px}
-  /* ABOUT */
-  .aboutgrid{display:grid;grid-template-columns:1.1fr 1.4fr;gap:34px;align-items:start}
-  .kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-  .kpi{background:linear-gradient(135deg,var(--blue1),var(--violet));color:#fff;border-radius:22px;padding:34px 20px;box-shadow:var(--shadow);text-align:center}
-  .kpi .n{font-size:42px;font-weight:800;line-height:1}
-  .aboutcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px;box-shadow:0 12px 28px rgba(0,0,0,.06);font-size:18px;line-height:1.9}
-  /* SKILLS */
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 8px 22px rgba(0,0,0,.06)}
-  .card h3{margin:0 0 8px}
-  .muted{color:var(--muted)}
-  .icons{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-  .badge{background:#f2f4ff;border:1px solid #e3e7ff;color:#4553b3;border-radius:12px;padding:8px 10px;font-size:12px}
-  /* PROJECTS */
-  .projgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
-  .proj{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 16px 34px rgba(0,0,0,.08);overflow:hidden}
-  .cap{height:140px;background:linear-gradient(135deg,var(--blue1),var(--violet));border-bottom:1px solid #ffffff33;border-top-left-radius:22px;border-top-right-radius:22px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:38px}
-  .body{padding:18px 20px}
-  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-  .tag{background:#eef2ff;border:1px solid #dfe5ff;color:#4051b2;border-radius:999px;padding:6px 10px;font-size:12px}
-  .proj .btnrow{margin-top:12px}
-  .btn{display:inline-block;padding:10px 16px;border-radius:12px;background:#eef2ff;border:1px solid #dfe5ff;color:#4051b2;font-weight:600}
-  /* CONTACT */
-  .contactband{background:linear-gradient(135deg,var(--blue1),var(--violet));color:#fff;padding:70px 20px;margin-top:10px}
-  .ctitle{font-size:36px;text-align:center;margin:0 0 8px}
-  .csub{opacity:.95;text-align:center;margin:0 0 28px}
-  .ctgrid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-  .tile{background:#ffffff2a;border:1px solid #ffffff33;border-radius:20px;padding:26px;text-align:center;backdrop-filter:blur(2px)}
-  .tile h4{margin:8px 0 6px;color:#fff}
-  .foot{padding:22px 12px;text-align:center;color:#8897d5}
-  @media (max-width:900px){ .title{font-size:48px} }
-  @media (max-width:700px){ .aboutgrid{grid-template-columns:1fr} .links{gap:18px} }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trisha Chandur — AI & Automation | Data Analytics</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family:'Inter',sans-serif; line-height:1.6; color:#333;
+            background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+            min-height:100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed; top:0; width:100%;
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+            z-index:1000; padding:1rem 0; box-shadow:0 2px 20px rgba(0,0,0,0.1);
+        }
+        .nav-container { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:0 2rem; }
+        .logo { font-size:1.5rem; font-weight:700; background:linear-gradient(135deg,#667eea,#764ba2);
+                -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+        .nav-links { display:flex; list-style:none; gap:2rem; }
+        .nav-links a { text-decoration:none; color:#333; font-weight:500; transition:.3s; position:relative; }
+        .nav-links a:hover { color:#667eea; }
+        .nav-links a::after { content:''; position:absolute; width:0; height:2px; bottom:-5px; left:0;
+            background:linear-gradient(135deg,#667eea,#764ba2); transition:width .3s; }
+        .nav-links a:hover::after { width:100%; }
+
+        /* Hero */
+        .hero { min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center;
+                padding:0 2rem; position:relative; overflow:hidden; }
+        .hero::before{
+            content:''; position:absolute; inset:0;
+            background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff08" points="0,1000 0,0 1000,0"/></svg>');
+            animation:float 20s ease-in-out infinite;
+        }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+
+        .hero-content { max-width:800px; z-index:2; position:relative; }
+        .profile-container{ text-align:center; margin-bottom:2rem; }
+
+        .profile-img{
+            width:200px; height:200px; border-radius:50%; margin:0 auto 2rem;
+            border:5px solid rgba(255,255,255,0.3); box-shadow:0 20px 40px rgba(0,0,0,0.2);
+            animation:pulse 2s ease-in-out infinite; object-fit:cover; object-position:center;
+        }
+        @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
+
+        .hero h1{ font-size:3.5rem; font-weight:700; color:#fff; margin-bottom:1rem;
+                  text-shadow:2px 2px 4px rgba(0,0,0,0.3); text-align:center; }
+        .hero .subtitle{ font-size:1.5rem; color:rgba(255,255,255,0.9); margin-bottom:2rem; font-weight:300; text-align:center; }
+        .hero .description{
+            font-size:1.2rem; color:rgba(255,255,255,0.8); margin-bottom:3rem; line-height:1.8; text-align:center;
+            max-width:800px; margin-left:auto; margin-right:auto;
+        }
+
+        .cta-buttons{ display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+        .btn{ padding:1rem 2rem; border:none; border-radius:50px; font-size:1.1rem; font-weight:600; text-decoration:none;
+              transition:.3s; cursor:pointer; display:inline-flex; align-items:center; gap:.5rem; }
+        .btn-primary{ background:#fff; color:#667eea; box-shadow:0 10px 30px rgba(0,0,0,0.2); }
+        .btn-primary:hover{ transform:translateY(-3px); box-shadow:0 15px 40px rgba(0,0,0,0.3); }
+        .btn-secondary{ background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.5); }
+        .btn-secondary:hover{ background:rgba(255,255,255,0.1); border-color:#fff; }
+
+        .scroll-indicator{ position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); color:#fff; font-size:2rem; animation:bounce 2s infinite; }
+        @keyframes bounce{ 0%,20%,50%,80%,100%{ transform:translateX(-50%) translateY(0)} 40%{ transform:translateX(-50%) translateY(-10px)} 60%{ transform:translateX(-50%) translateY(-5px)} }
+
+        /* Sections */
+        .section{ padding:5rem 0; background:#fff; }
+        .container{ max-width:1200px; margin:0 auto; padding:0 2rem; }
+        .section-title{ text-align:center; font-size:2.5rem; font-weight:700; margin-bottom:3rem;
+                        background:linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+
+        /* About */
+        .about-grid{ display:grid; grid-template-columns:1fr 2fr; gap:4rem; align-items:center; }
+        .about-stats{ display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+        .stat-card{ text-align:center; padding:2rem; background:linear-gradient(135deg,#667eea,#764ba2); color:#fff;
+                    border-radius:15px; box-shadow:0 10px 30px rgba(102,126,234,0.3); }
+        .stat-number{ font-size:2.5rem; font-weight:700; margin-bottom:.5rem; }
+        .stat-label{ font-size:.9rem; opacity:.9; }
+        .about-text{ font-size:1.1rem; line-height:1.8; color:#666; }
+
+        /* Skills */
+        .skills-section{ background:#f8faff; }
+        .skills-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; }
+        .skill-category{ background:#fff; padding:2rem; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.1); transition:.3s; }
+        .skill-category:hover{ transform:translateY(-5px); }
+        .skill-category h3{ font-size:1.3rem; margin-bottom:1.5rem; color:#333; display:flex; align-items:center; gap:.5rem; }
+        .tech-icons{ display:flex; flex-wrap:wrap; gap:1rem; margin-top:1rem; }
+        .tech-icon{ width:40px; height:40px; border-radius:8px; padding:5px; background:#f8faff; display:flex; align-items:center; justify-content:center; transition:.3s; }
+        .tech-icon:hover{ transform:scale(1.2); }
+        .tech-icon img{ width:100%; height:100%; object-fit:contain; }
+
+        /* Projects */
+        .projects-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(350px,1fr)); gap:2rem; }
+        .project-card{ background:#fff; border-radius:15px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.1); transition:.3s; }
+        .project-card:hover{ transform:translateY(-5px); box-shadow:0 20px 40px rgba(0,0,0,0.15); }
+        .project-image{ width:100%; height:200px; background:linear-gradient(135deg,#667eea,#764ba2); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+        .project-image img{ width:80px; height:80px; object-fit:contain; filter:brightness(0) invert(1); }
+        .project-content{ padding:2rem; }
+        .project-title{ font-size:1.3rem; font-weight:600; margin-bottom:1rem; color:#333; }
+        .project-description{ color:#666; line-height:1.6; margin-bottom:1.5rem; }
+        .project-tags{ display:flex; flex-wrap:wrap; gap:.5rem; }
+        .tag{ background:#f0f4ff; color:#667eea; padding:.3rem .8rem; border-radius:20px; font-size:.8rem; font-weight:500; }
+
+        /* Contact */
+        .contact-section{ background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff !important; text-align:center; }
+        .contact-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; margin-top:3rem; }
+        .contact-item{ padding:2rem; background:rgba(255,255,255,0.1); border-radius:15px; backdrop-filter:blur(10px); transition:.3s; }
+        .contact-item:hover{ transform:translateY(-5px); }
+        .contact-item i{ font-size:2rem; margin-bottom:1rem; }
+        .contact-item h3{ font-size:1.2rem; margin-bottom:.5rem; }
+        .contact-item a{ color:#fff; text-decoration:none; }
+
+        /* Footer */
+        footer{ background:#1a1a2e; color:#fff; text-align:center; padding:2rem 0; }
+        .social-links{ display:flex; justify-content:center; gap:1rem; margin-bottom:1rem; }
+        .social-link{ width:50px; height:50px; background:linear-gradient(135deg,#667eea,#764ba2); color:#fff; border-radius:50%;
+                      display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:1.2rem; transition:.3s; }
+        .social-link:hover{ transform:scale(1.1); }
+
+        /* Responsive */
+        @media (max-width:768px){
+            .nav-links{ display:none; }
+            .hero h1{ font-size:2.5rem; }
+            .about-grid{ grid-template-columns:1fr; text-align:center; }
+            .cta-buttons{ flex-direction:column; align-items:center; }
+            .btn{ width:200px; }
+        }
+
+        /* Animations */
+        .fade-in{ opacity:0; transform:translateY(30px); animation:fadeIn .8s ease forwards; }
+        @keyframes fadeIn{ to{ opacity:1; transform:translateY(0) } }
+        .scroll-indicator{ position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); color:#fff; font-size:2rem; animation:bounce 2s infinite; }
+
+        /* Extra helpers for mobile overrides at end */
+        .nav-links a.active{ color:#667eea; }
+        .nav-links a.active::after{ width:100%; }
+        .tech-icon img, .project-image img{ transition:.3s; }
+
+        @media (max-width:768px){
+            .mobile-menu-btn{ display:block !important; }
+            .nav-links{ display:none; }
+            .hero-content h1{ font-size:2.5rem; margin-bottom:.5rem; }
+            .subtitle{ font-size:1.2rem; margin-bottom:1rem; color:#fff; }
+            .profile-img{ width:200px; height:200px; border-radius:50%; margin:0 auto 2rem;
+                border:5px solid rgba(255,255,255,0.3); box-shadow:0 20px 40px rgba(0,0,0,0.2);
+                animation:pulse 2s ease-in-out infinite; object-fit:cover; object-position:center top; display:block; }
+            .skills-grid, .projects-grid{ grid-template-columns:1fr; }
+            .contact-grid{ grid-template-columns:1fr 1fr; }
+        }
+
+        .lazy{ filter:blur(5px); transition:filter .3s; }
+    </style>
 </head>
 <body>
-
-<!-- NAV -->
-<header>
-  <div class="nav">
-    <div class="brand">Trisha Chandur</div>
-    <nav class="links">
-      <a class="active" href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Trisha Chandur</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <!-- If you create a separate portfolio page later, change this to portfolio.html -->
+                <li><a href="#projects">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-  </div>
-</header>
 
-<!-- HERO -->
 <section id="home" class="hero">
-  <div class="dots"><div></div></div>
-
-  <span class="ring">
-    <img class="avatar" src="https://avatars.githubusercontent.com/TrishaChandur" alt="Trisha Chandur" />
-  </span>
-
-  <h1 class="title">Trisha Chandur</h1>
-  <p class="roles">🤖 AI &amp; Automation &nbsp; | &nbsp; 🌐 Data Analytics &nbsp; | &nbsp; 🚀 Process Optimizer</p>
-
-  <p class="lead">
-    Relationship-driven BI &amp; Automation Analyst with 3+ years of experience bridging data insights and business needs.
-    Track record of delivering dashboards and automation solutions that improved efficiency and supported data-driven strategy.
-  </p>
-
-  <div class="cta">
-    <a class="pill primary" href="#contact">✉️ Let’s Connect</a>
-    <a class="pill ghost" href="#projects">📂 View Portfolio</a>
-  </div>
+    <div class="hero-content fade-in">
+        <div class="profile-container">
+            <!-- Use GitHub avatar so no local image needed -->
+            <img src="https://avatars.githubusercontent.com/TrishaChandur" alt="Trisha Chandur" class="profile-img">
+        </div>
+        <h1>Trisha Chandur</h1>
+        <p class="subtitle">🤖 AI & Automation | 📊 Data Analytics | 🚀 Process Optimizer</p>
+        <p class="description">
+            Relationship-driven BI &amp; Automation Analyst with 3+ years of experience bridging data insights and
+            business needs. Track record of delivering dashboards and automation solutions that improved efficiency
+            and supported data-driven strategy.
+        </p>
+        <div class="cta-buttons">
+            <a href="#contact" class="btn btn-primary">
+                <i class="fas fa-envelope"></i> Let's Connect
+            </a>
+            <a href="#projects" class="btn btn-secondary">
+                <i class="fas fa-folder"></i> View Portfolio
+            </a>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <i class="fas fa-chevron-down"></i>
+    </div>
 </section>
 
-<!-- ABOUT -->
+<!-- About -->
 <section id="about" class="section">
-  <h2 class="heading">About Me</h2>
-
-  <div class="aboutgrid">
-    <!-- KPI tiles -->
-    <div class="kpis">
-      <div class="kpi"><div class="n">3+</div><div>Years Experience</div></div>
-      <div class="kpi"><div class="n">40%</div><div>Manual Work Reduced</div></div>
-      <div class="kpi"><div class="n">15%</div><div>Cost Savings Found</div></div>
-      <div class="kpi"><div class="n">3.9</div><div>MS GPA (UNT)</div></div>
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+            <div class="about-stats">
+                <div class="stat-card fade-in">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">40%</div>
+                    <div class="stat-label">Manual Work Reduced</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">15%</div>
+                    <div class="stat-label">Cost Savings Found</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">3.9</div>
+                    <div class="stat-label">MS GPA (UNT)</div>
+                </div>
+            </div>
+            <div class="about-text fade-in">
+                <p>
+                    I'm a Business Intelligence & Automation analyst focused on turning messy data into reliable pipelines,
+                    insightful dashboards, and smart automation. I work with Python, SQL, Power BI/Tableau, and cloud tools
+                    to help teams move faster and make better decisions.
+                </p>
+                <p>
+                    Currently finishing my M.S. in Business Analytics at the University of North Texas (GPA 3.9). My interests
+                    include data engineering, machine learning, and applying Generative AI (LLMs, RAG) to real business problems.
+                </p>
+                <p>
+                    I love translating complex insights into clear actions for stakeholders and building systems that quietly
+                    save time every day.
+                </p>
+            </div>
+        </div>
     </div>
-
-    <!-- paragraph -->
-    <div class="aboutcard">
-      I’m a Business Intelligence & Automation Intern at Atlantic Aviation with hands-on experience building semi-automated
-      decision-support tools and interactive dashboards using Power BI, SQL, Python, and Excel. I’m completing my MS in
-      Business Analytics at the University of North Texas (GPA 3.9) and I’m passionate about applying data engineering,
-      machine learning, and Generative AI (LLMs, RAG) to drive intelligent automation and business impact.<br/><br/>
-      Previously, I supported student-success analytics at UNT and helped Keka HR customers adopt data-driven workflows.
-      I enjoy translating complex insights into clear actions for stakeholders and turning messy data into reliable pipelines.
-    </div>
-  </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills" class="section">
-  <h2 class="heading">Technical Expertise</h2>
-  <p class="muted" style="text-align:center;margin-top:-6px;margin-bottom:26px">
-    Data engineering, analytics, machine learning and Generative AI (LLMs, RAG)
-  </p>
+<!-- Skills -->
+<section id="skills" class="section skills-section">
+    <div class="container">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-robot"></i> AI & Machine Learning</h3>
+                <p>Models, evaluation, and deployment</p>
+                <div class="tech-icons">
+                    <div class="tech-icon"><img src="artificial-intelligence.png" alt="AI"></div>
+                    <div class="tech-icon"><img src="deep-learning.png" alt="Deep Learning"></div>
+                    <div class="tech-icon"><img src="tensorflow.png" alt="TensorFlow"></div>
+                    <div class="tech-icon"><img src="huggingface.png" alt="Hugging Face"></div>
+                    <div class="tech-icon"><img src="icons8-chatgpt-50.png" alt="ChatGPT"></div>
+                </div>
+            </div>
 
-  <div class="grid">
-    <div class="card">
-      <h3>AI &amp; Machine Learning</h3>
-      <p class="muted">Models, evaluation, deployment</p>
-      <div class="icons">
-        <span class="badge">Python</span><span class="badge">Pandas</span><span class="badge">Scikit-learn</span>
-        <span class="badge">TensorFlow</span><span class="badge">LLMs</span><span class="badge">RAG</span>
-      </div>
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-cloud"></i> Cloud & Big Data</h3>
+                <p>Scalable data platforms & orchestration</p>
+                <div class="tech-icons">
+                    <div class="tech-icon"><img src="aws.webp" alt="AWS"></div>
+                    <div class="tech-icon"><img src="icons8-aws-24.png" alt="AWS Services"></div>
+                    <div class="tech-icon"><img src="spark.png" alt="Apache Spark"></div>
+                    <div class="tech-icon"><img src="icons8-docker-50.png" alt="Docker"></div>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-database"></i> Data & Analytics</h3>
+                <p>ETL, SQL, and BI</p>
+                <div class="tech-icons">
+                    <div class="tech-icon"><img src="database.png" alt="Database"></div>
+                    <div class="tech-icon"><img src="mysql-database.png" alt="MySQL"></div>
+                    <div class="tech-icon"><img src="postgreSQL-Logo.wine.png" alt="PostgreSQL"></div>
+                    <div class="tech-icon"><img src="pandas.png" alt="Pandas"></div>
+                    <div class="tech-icon"><img src="numpy.png" alt="NumPy"></div>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-chart-bar"></i> Business Intelligence</h3>
+                <p>Dashboards & insights</p>
+                <div class="tech-icons">
+                    <div class="tech-icon"><img src="Tableau-Symbol.png" alt="Tableau"></div>
+                    <div class="tech-icon"><img src="powerbi.png" alt="Power BI"></div>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-people-group"></i> Collaboration</h3>
+                <p>Workflow automation & stakeholder enablement</p>
+                <div class="tech-icons">
+                    <div class="tech-icon"><img src="github.png" alt="GitHub"></div>
+                    <div class="tech-icon"><img src="excel.png" alt="Excel"></div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="card">
-      <h3>Cloud &amp; Big Data</h3>
-      <p class="muted">Scalable data platforms</p>
-      <div class="icons">
-        <span class="badge">AWS (S3/Glue/Redshift/Athena/Lambda)</span>
-        <span class="badge">BigQuery</span><span class="badge">Airflow</span><span class="badge">Spark</span>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Data &amp; Analytics</h3>
-      <p class="muted">Pipelines, SQL, BI</p>
-      <div class="icons">
-        <span class="badge">SQL (Advanced)</span><span class="badge">PostgreSQL</span><span class="badge">MongoDB</span>
-        <span class="badge">Power BI</span><span class="badge">Tableau</span><span class="badge">Excel (VBA/Macros)</span>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Other</h3>
-      <p class="muted">Workflow & collaboration</p>
-      <div class="icons">
-        <span class="badge">GitHub</span><span class="badge">ETL</span><span class="badge">Workflow Automation</span>
-        <span class="badge">Stakeholder Management</span>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- Projects -->
 <section id="projects" class="section">
-  <h2 class="heading">Projects</h2>
-  <p class="muted" style="text-align:center;margin-top:-6px;margin-bottom:26px">Selected work in BI, ML, and data engineering</p>
+    <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-image"><i class="fas fa-id-badge" style="font-size:4rem;color:#fff;"></i></div>
+                <div class="project-content">
+                    <h3 class="project-title">AI Resume Screener</h3>
+                    <p class="project-description">
+                        ML/LLM-powered resume classification with recruiter feedback loop; improved screening efficiency by ~40%.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span><span class="tag">LLMs</span><span class="tag">AutoML</span><span class="tag">Sheets</span>
+                    </div>
+                </div>
+            </div>
 
-  <div class="projgrid">
-    <!-- 1 -->
-    <article class="proj">
-      <div class="cap">📈</div>
-      <div class="body">
-        <h3>AI Resume Screener</h3>
-        <p class="muted">HR resume classification with Google Cloud AutoML + Dialogflow; integrated Google Sheets for recruiter feedback and achieved ~40% screening efficiency improvement.</p>
-        <div class="tags"><span class="tag">AutoML</span><span class="tag">Dialogflow</span><span class="tag">Sheets</span><span class="tag">Python</span></div>
-        <div class="btnrow"><a class="btn" href="#" target="_blank" rel="noreferrer">Code / Demo</a></div>
-      </div>
-    </article>
-    <!-- 2 -->
-    <article class="proj">
-      <div class="cap">🗄️</div>
-      <div class="body">
-        <h3>Advanced SQL Project</h3>
-        <p class="muted">End-to-end SQL project: data modeling, complex queries (window functions), automation scripts, and report-ready views for BI tools.</p>
-        <div class="tags"><span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">Automation</span></div>
-        <div class="btnrow"><a class="btn" href="#" target="_blank" rel="noreferrer">Code / Demo</a></div>
-      </div>
-    </article>
-    <!-- 3 -->
-    <article class="proj">
-      <div class="cap">🤖</div>
-      <div class="body">
-        <h3>Machine Learning Project</h3>
-        <p class="muted">Supervised ML with feature engineering, model selection, and evaluation using Scikit-learn; delivered actionable insights.</p>
-        <div class="tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Pandas</span></div>
-        <div class="btnrow"><a class="btn" href="#" target="_blank" rel="noreferrer">Code / Demo</a></div>
-      </div>
-    </article>
-    <!-- 4 -->
-    <article class="proj">
-      <div class="cap">🚦</div>
-      <div class="body">
-        <h3>Denton Accident Severity Prediction</h3>
-        <p class="muted">Analyzed crash data (time, location, environment) and built a classifier to predict severity; improved safety insights for local decision-making.</p>
-        <div class="tags"><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">Feature Eng.</span></div>
-        <div class="btnrow"><a class="btn" href="#" target="_blank" rel="noreferrer">Code / Demo</a></div>
-      </div>
-    </article>
-    <!-- 5 -->
-    <article class="proj">
-      <div class="cap">🧠</div>
-      <div class="body">
-        <h3>Brain Tumor Detection</h3>
-        <p class="muted">Deep learning on medical imaging to classify brain tumor presence; prototyped evaluation pipeline and reporting.</p>
-        <div class="tags"><span class="tag">TensorFlow/PyTorch</span><span class="tag">Computer Vision</span></div>
-        <div class="btnrow"><a class="btn" href="#" target="_blank" rel="noreferrer">Code / Demo</a></div>
-      </div>
-    </article>
-  </div>
+            <div class="project-card fade-in">
+                <div class="project-image"><i class="fas fa-database" style="font-size:4rem;color:#fff;"></i></div>
+                <div class="project-content">
+                    <h3 class="project-title">Advanced SQL Project</h3>
+                    <p class="project-description">
+                        End-to-end SQL data modeling, complex queries (window functions), automation scripts, and BI-ready views.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">Automation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-image"><i class="fas fa-brain" style="font-size:4rem;color:#fff;"></i></div>
+                <div class="project-content">
+                    <h3 class="project-title">Machine Learning Project</h3>
+                    <p class="project-description">
+                        Supervised ML with feature engineering and model evaluation delivering actionable insights to stakeholders.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Pandas</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-image"><i class="fas fa-car-crash" style="font-size:4rem;color:#fff;"></i></div>
+                <div class="project-content">
+                    <h3 class="project-title">Denton Accident Severity</h3>
+                    <p class="project-description">
+                        Crash data analysis (time, location, environment) with severity prediction for safety insights.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Pandas</span><span class="tag">scikit-learn</span><span class="tag">Feature Eng.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-image"><i class="fas fa-notes-medical" style="font-size:4rem;color:#fff;"></i></div>
+                <div class="project-content">
+                    <h3 class="project-title">Brain Tumor Detection</h3>
+                    <p class="project-description">
+                        CNN-based medical imaging classifier with evaluation pipeline and reporting.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">TensorFlow/PyTorch</span><span class="tag">Computer Vision</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align:center; margin-top:3rem;">
+            <a href="#projects" class="btn btn-primary">
+                <i class="fas fa-folder-open"></i> View Full Portfolio
+            </a>
+        </div>
+    </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contactband">
-  <h2 class="ctitle">Let’s Connect &amp; Collaborate</h2>
-  <p class="csub">I’m passionate about building meaningful professional relationships and contributing to the data/AI community.</p>
-
-  <div class="ctgrid">
-    <div class="tile">
-      <div style="font-size:28px">✉️</div>
-      <h4>Email</h4>
-      <p><a style="color:#fff;text-decoration:underline" href="mailto:Trishachandur26@gmail.com">Trishachandur26@gmail.com</a></p>
+<!-- Contact -->
+<section id="contact" class="section contact-section">
+    <div class="container">
+        <h2 class="section-title" style="color:#fff !important; background:none !important; -webkit-text-fill-color:#fff !important;">
+            Let's Connect & Collaborate
+        </h2>
+        <p style="font-size:1.2rem; margin-bottom:2rem; opacity:.9;">
+            Happy to chat about BI, automation, analytics, or ML projects.
+        </p>
+        <div class="contact-grid">
+            <div class="contact-item fade-in">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <a href="mailto:Trishachandur26@gmail.com">Trishachandur26@gmail.com</a>
+            </div>
+            <div class="contact-item fade-in">
+                <i class="fab fa-linkedin"></i>
+                <h3>LinkedIn</h3>
+                <a href="https://www.linkedin.com/in/trisha-chandur/" target="_blank">linkedin.com/in/trisha-chandur</a>
+            </div>
+            <div class="contact-item fade-in">
+                <i class="fab fa-github"></i>
+                <h3>GitHub</h3>
+                <a href="https://github.com/TrishaChandur" target="_blank">github.com/TrishaChandur</a>
+            </div>
+            <div class="contact-item fade-in">
+                <i class="fas fa-phone"></i>
+                <h3>Phone</h3>
+                <a href="tel:+19407584186">+1 (940) 758-4186</a>
+            </div>
+        </div>
     </div>
-    <div class="tile">
-      <div style="font-size:28px">in</div>
-      <h4>LinkedIn</h4>
-      <p><a style="color:#fff;text-decoration:underline" href="https://www.linkedin.com/in/trisha-chandur/" target="_blank" rel="noreferrer">Connect with me</a></p>
-    </div>
-    <div class="tile">
-      <div style="font-size:28px">🐙</div>
-      <h4>GitHub</h4>
-      <p><a style="color:#fff;text-decoration:underline" href="https://github.com/TrishaChandur" target="_blank" rel="noreferrer">View my code</a></p>
-    </div>
-  </div>
 </section>
 
-<footer class="foot">
-  © <span id="y"></span> Trisha Chandur • “The best solutions emerge when diverse minds collaborate toward a common goal.”
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/trisha-chandur/" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/TrishaChandur" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:Trishachandur26@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+19407584186" class="social-link"><i class="fas fa-phone"></i></a>
+        </div>
+        <p>&copy; <span id="year"></span> Trisha Chandur. Crafted with 💜 and cutting-edge web technologies.</p>
+        <p style="opacity:.7; font-size:.9rem;">
+            "The best solutions emerge when diverse minds collaborate toward a common goal."
+        </p>
+    </div>
 </footer>
 
 <script>
-  document.getElementById('y').textContent = new Date().getFullYear();
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click',e=>{
+            const t=document.querySelector(a.getAttribute('href')); if(!t) return;
+            e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'});
+        });
+    });
+
+    // Fade-in on scroll
+    const obs = new IntersectionObserver(entries=>{
+        entries.forEach(en=>{ if(en.isIntersecting){ en.target.style.animationDelay='0.2s'; en.target.classList.add('fade-in'); }});
+    },{threshold:0.1, rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+    // Active nav link
+    window.addEventListener('scroll', ()=>{
+        const secs=document.querySelectorAll('section[id]'); const links=document.querySelectorAll('.nav-links a');
+        let cur=''; secs.forEach(s=>{ if(scrollY >= (s.offsetTop-200)) cur=s.id; });
+        links.forEach(l=>{ l.classList.remove('active'); if(l.getAttribute('href')===`#${cur}`) l.classList.add('active'); });
+    });
+
+    // Typing effect
+    const subtitle=document.querySelector('.subtitle'); const txt=subtitle.textContent; subtitle.textContent='';
+    let i=0; (function type(){ if(i<txt.length){ subtitle.textContent+=txt.charAt(i++); setTimeout(type,100);} })();
+
+    // Floating particles
+    function createParticle(){
+        const p=document.createElement('div'); p.className='particle';
+        p.style.cssText=`position:absolute;width:4px;height:4px;background:rgba(255,255,255,0.5);border-radius:50%;pointer-events:none;
+                         animation: float 6s linear infinite; left:${Math.random()*100}% ; animation-delay:${Math.random()*6}s;`;
+        document.querySelector('.hero').appendChild(p); setTimeout(()=>p.remove(),6000);
+    }
+    setInterval(createParticle,300);
+
+    // Hover details
+    document.querySelectorAll('.contact-item').forEach(i=>{
+        i.addEventListener('mouseenter',()=>i.style.transform='translateY(-10px) scale(1.05)');
+        i.addEventListener('mouseleave',()=>i.style.transform='translateY(-5px) scale(1)');
+    });
+    document.querySelectorAll('.project-card').forEach(c=>{
+        c.addEventListener('mouseenter',()=>{ const img=c.querySelector('.project-image img'); if(img){ img.style.transform='scale(1.1) rotate(5deg)'; }});
+        c.addEventListener('mouseleave',()=>{ const img=c.querySelector('.project-image img'); if(img){ img.style.transform='scale(1) rotate(0deg)'; }});
+    });
+
+    // Progress bar
+    const bar=document.createElement('div'); bar.style.cssText=`position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(135deg,#667eea,#764ba2);z-index:9999;transition:width .1s ease;`;
+    document.body.appendChild(bar);
+    window.addEventListener('scroll',()=>{ const t=window.scrollY; const h=document.body.scrollHeight-window.innerHeight; bar.style.width=(t/h*100)+'%'; });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu
+    const btn=document.createElement('div'); btn.innerHTML='<i class="fas fa-bars"></i>'; btn.className='mobile-menu-btn';
+    btn.style.cssText='display:none;font-size:1.5rem;cursor:pointer;color:#333;'; document.querySelector('.nav-container').appendChild(btn);
+    if(window.innerWidth<=768){ btn.style.display='block'; const links=document.querySelector('.nav-links');
+        btn.addEventListener('click',()=>{ links.style.display = links.style.display==='flex' ? 'none':'flex';
+            links.style.flexDirection='column'; links.style.position='absolute'; links.style.top='100%'; links.style.left='0'; links.style.right='0';
+            links.style.background='white'; links.style.padding='1rem'; links.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)';});
+    }
 </script>
 </body>
 </html>
