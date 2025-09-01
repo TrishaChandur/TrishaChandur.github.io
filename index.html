@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Trisha Chandur — Portfolio</title>
+<meta name="description" content="Business Analytics • Automation • Machine Learning" />
+<style>
+  :root{
+    --bg:#0b1220; --text:#e8eefc; --muted:#cdd9f6; --ink:#09122b;
+    --card:#111a2e; --line:#263455;
+    --brand1:#6a11cb; --brand2:#2575fc; --pill:#ffffff;
+    --btnText:#0a1630; --link:#bcd3ff;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;scroll-behavior:smooth}
+  a{color:var(--link);text-decoration:none}
+  a:hover{opacity:.9}
+  /* NAV */
+  header{position:sticky;top:0;background:#121a2b;backdrop-filter:saturate(1.2) blur(6px);
+    border-bottom:1px solid rgba(255,255,255,.06);z-index:20}
+  .nav{max-width:1100px;margin:0 auto;padding:14px 18px;display:flex;gap:22px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .nav a{color:#d2defa;padding:8px 12px;border-radius:10px}
+  .nav a.active,.nav a:hover{background:rgba(255,255,255,.08);color:#fff}
+
+  /* HERO */
+  .hero{
+    background: radial-gradient(1200px 500px at 50% -50%, rgba(255,255,255,.15), transparent 60%),
+                linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
+    padding:84px 20px 70px; text-align:center; color:#fff; position:relative;
+  }
+  .avatar{
+    width:160px;height:160px;border-radius:50%;object-fit:cover;margin:0 auto 18px;
+    border:6px solid #fff; box-shadow:0 10px 30px rgba(0,0,0,.25);
+  }
+  .name{font-size:46px;line-height:1.1;margin:10px 0 8px;text-shadow:0 3px 12px rgba(0,0,0,.2)}
+  .tagline{font-size:20px;margin:6px 0 14px;opacity:.95}
+  .lead{max-width:820px;margin:0 auto 18px;font-size:18px;line-height:1.7;opacity:.95}
+  .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+  .btn{display:inline-block;padding:12px 22px;border-radius:28px;font-weight:700}
+  .btn.primary{background:#fff;color:var(--btnText)}
+  .btn.ghost{border:2px solid #fff;color:#fff}
+
+  /* LAYOUT */
+  .section{max-width:1100px;margin:0 auto;padding:48px 20px}
+  h2{font-size:30px;margin:0 0 12px;text-align:center}
+  .muted{color:var(--muted);text-align:center;margin:0 0 28px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+  .card h3{margin:0 0 6px}
+  .kpis{display:grid;grid-template-columns:repeat(4,minmax(120px,1fr));gap:12px}
+  .kpi{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .kpi .n{font-size:24px;font-weight:800}
+
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .tag{background:#0f1830;border:1px solid var(--line);padding:6px 10px;border-radius:999px;font-size:12px;color:#cfe0ff}
+
+  /* CONTACT */
+  .contact-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .contact-item{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center}
+
+  footer{padding:28px 16px;text-align:center;color:#a9bde9;border-top:1px solid var(--line)}
+  @media (max-width:720px){ .kpis{grid-template-columns:repeat(2,1fr)} .name{font-size:38px} }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <img class="avatar" src="https://avatars.githubusercontent.com/TrishaChandur" alt="Trisha Chandur" />
+  <h1 class="name">Trisha Chandur</h1>
+  <p class="tagline">🤖 AI & Automation &nbsp;|&nbsp; 📊 Data Analytics &nbsp;|&nbsp; 🚀 Process Optimizer</p>
+  <p class="lead">
+    Relationship-driven BI &amp; Automation Analyst with 3+ years of experience bridging data insights and business needs.
+    Track record of delivering dashboards and automation solutions that improved efficiency and supported data-driven strategy.
+  </p>
+  <div class="cta">
+    <a class="btn primary" href="#contact">✉️ Let’s Connect</a>
+    <a class="btn ghost" href="#projects">📂 View Portfolio</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <h2>About</h2>
+  <p class="muted">Business Intelligence &amp; Automation Intern at Atlantic Aviation • MS Business Analytics @ UNT (GPA 3.9)</p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="n">3+ yrs</div><div>Analytics & Automation</div></div>
+    <div class="kpi"><div class="n">40%</div><div>Manual Work Reduced</div></div>
+    <div class="kpi"><div class="n">15%</div><div>Cost Savings Found</div></div>
+    <div class="kpi"><div class="n">2</div><div>BI Dashboards Suites</div></div>
+  </div>
+
+  <div class="grid" style="margin-top:18px">
+    <div class="card">
+      <h3>Education</h3>
+      <p><strong>University of North Texas</strong> — M.S. Business Analytics, GPA 3.9 (2024–2025)</p>
+      <p><strong>Osmania University</strong> — B.E. Civil Engineering (2019–2023)</p>
+    </div>
+    <div class="card">
+      <h3>Experience Highlights</h3>
+      <ul>
+        <li>Atlantic Aviation — BI &amp; Automation Intern: fuel optimization model, anomaly detection, automated reporting.</li>
+        <li>UNT — Graduate Assistant: dashboards for student trends and outcomes.</li>
+        <li>Keka HR — Customer Success Data Analyst: onboarding, usage insights, automated reporting templates.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <h2>Skills</h2>
+  <p class="muted">Hands-on with data engineering, analytics, ML, and Generative AI (LLMs, RAG)</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Programming</h3>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span>
+        <span class="tag">Scikit-learn</span><span class="tag">PySpark</span><span class="tag">R</span><span class="tag">SQL (Advanced)</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Cloud & Data</h3>
+      <div class="tags">
+        <span class="tag">AWS (S3, Glue, Redshift, Athena, Lambda)</span>
+        <span class="tag">BigQuery</span><span class="tag">Airflow</span><span class="tag">Spark</span>
+        <span class="tag">PostgreSQL</span><span class="tag">MongoDB</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>ML & AI</h3>
+      <div class="tags">
+        <span class="tag">Regression</span><span class="tag">Classification</span><span class="tag">Clustering</span>
+        <span class="tag">TensorFlow</span><span class="tag">LLMs</span><span class="tag">RAG</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>BI & Viz</h3>
+      <div class="tags">
+        <span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span>
+        <span class="tag">Excel (VBA, Macros)</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Other</h3>
+      <div class="tags">
+        <span class="tag">GitHub</span><span class="tag">ETL</span><span class="tag">Workflow Automation</span>
+        <span class="tag">Stakeholder Management</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <h2>Projects</h2>
+  <p class="muted">A sample of work aligned to BI, ML, and data engineering</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>AI Resume Screener</h3>
+      <p>HR resume classification with Google Cloud AutoML + Dialogflow; integrated Google Sheets for recruiter feedback and achieved ~40% screening efficiency improvement.</p>
+      <div class="tags"><span class="tag">AutoML</span><span class="tag">Dialogflow</span><span class="tag">Sheets</span><span class="tag">Python</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Advanced SQL Project</h3>
+      <p>End-to-end SQL data project: modeling, complex queries, window functions, automation scripts, and report-ready views for BI tools.</p>
+      <div class="tags"><span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">DBT (optional)</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Machine Learning Project</h3>
+      <p>Supervised ML (classification/regression) with feature engineering, model selection, and evaluation using Scikit-learn; delivered actionable insights.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Pandas</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Denton Accident Severity Prediction</h3>
+      <p>Analyzed crash data (time, location, environment) and built a model to predict severity; improved safety insights for local decision-making.</p>
+      <div class="tags"><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">Feature Eng.</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Brain Tumor Detection</h3>
+      <p>Deep learning on medical imaging to classify brain tumor presence; prototyped evaluation pipeline and reporting.</p>
+      <div class="tags"><span class="tag">TensorFlow/PyTorch</span><span class="tag">Computer Vision</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <h2>Contact</h2>
+  <p class="muted">Based in Denton, TX • Open to roles in India from Jan 2026</p>
+
+  <div class="contact-list">
+    <div class="contact-item">
+      <h3>Email</h3>
+      <p><a href="mailto:Trishachandur26@gmail.com">Trishachandur26@gmail.com</a></p>
+    </div>
+    <div class="contact-item">
+      <h3>LinkedIn</h3>
+      <p><a href="https://www.linkedin.com/in/trisha-chandur/" target="_blank" rel="noreferrer">linkedin.com/in/trisha-chandur</a></p>
+    </div>
+    <div class="contact-item">
+      <h3>GitHub</h3>
+      <p><a href="https://github.com/TrishaChandur" target="_blank" rel="noreferrer">github.com/TrishaChandur</a></p>
+    </div>
+    <div class="contact-item">
+      <h3>Phone</h3>
+      <p><a href="tel:+19407584186">+1 (940) 758-4186</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="y"></span> Trisha Chandur • “The best solutions emerge when diverse minds collaborate toward a common goal.”
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
