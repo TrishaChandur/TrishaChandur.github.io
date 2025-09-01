@@ -117,6 +117,24 @@
     /* Animations */
     .fade-in{ opacity:0; transform:translateY(30px); animation:fadeIn .8s ease forwards; }
     @keyframes fadeIn{ to{ opacity:1; transform:translateY(0) } }
+    
+    /* Contact: subtitle + small URL line */
+.muted-link{
+  margin-top:.35rem;
+  font-size:.95rem;
+  opacity:.85;
+}
+
+/* Projects v2 (image thumbs + buttons) */
+.project-card.v2{ position:relative; overflow:hidden; border-radius:15px; background:#fff; box-shadow:0 10px 30px rgba(0,0,0,.1); transition:.3s; }
+.project-card.v2:hover{ transform:translateY(-5px); box-shadow:0 20px 40px rgba(0,0,0,.15); }
+
+.project-thumb{ width:100%; aspect-ratio:16/9; background:linear-gradient(135deg,#667eea,#764ba2); overflow:hidden; }
+.project-thumb img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease; }
+.project-card.v2:hover .project-thumb img{ transform:scale(1.05); }
+
+.project-actions{ display:flex; gap:.75rem; flex-wrap:wrap; margin-top:1rem; }
+.btn-small{ padding:.6rem 1rem; border-radius:12px; font-size:.95rem; }
 
     /* Responsive */
     @media (max-width:768px){
@@ -205,37 +223,135 @@
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="projects-grid">
-        <!-- project cards here... -->
-      </div>
+<section id="projects" class="section">
+  <div class="container">
+    <h2 class="section-title">Featured Projects</h2>
+
+    <div class="projects-grid">
+
+      <!-- Project 1: AI Hiring Assistant -->
+      <article class="project-card v2">
+        <div class="project-thumb">
+          <img src="projects/ai-hiring-assistant.jpg" alt="AI Hiring Assistant thumbnail" loading="lazy">
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">AI Hiring Assistant</h3>
+          <p class="project-description">
+            LLM-powered assistant for resume screening and candidate ranking with recruiter-ready insights.
+            Improved screening efficiency by ~40%.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">Automation</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn-secondary btn-small" target="_blank" href="https://github.com/TrishaChandur"><i class="fab fa-github"></i> View Code</a>
+            <a class="btn btn-primary btn-small" href="#"><i class="fas fa-file-alt"></i> Case Study</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2: Advanced SQL Project -->
+      <article class="project-card v2">
+        <div class="project-thumb">
+          <img src="projects/sql-project.jpg" alt="Advanced SQL Project thumbnail" loading="lazy">
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Advanced SQL Project</h3>
+          <p class="project-description">
+            End-to-end SQL data modeling, complex queries (window functions), and BI-ready automation scripts.
+          </p>
+          <div class="project-tags">
+            <span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">Automation</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn-secondary btn-small" target="_blank" href="https://github.com/TrishaChandur"><i class="fab fa-github"></i> View Code</a>
+            <a class="btn btn-primary btn-small" href="#"><i class="fas fa-file-alt"></i> Case Study</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3: Machine Learning Project -->
+      <article class="project-card v2">
+        <div class="project-thumb">
+          <img src="projects/ml-project.jpg" alt="Machine Learning Project thumbnail" loading="lazy">
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Machine Learning Project</h3>
+          <p class="project-description">
+            Supervised ML with feature engineering and model evaluation delivering actionable insights to stakeholders.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Pandas</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn-secondary btn-small" target="_blank" href="https://github.com/TrishaChandur"><i class="fab fa-github"></i> View Code</a>
+            <a class="btn btn-primary btn-small" href="#"><i class="fas fa-file-alt"></i> Case Study</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 4: Denton Accident Severity -->
+      <article class="project-card v2">
+        <div class="project-thumb">
+          <img src="projects/denton-accidents.jpg" alt="Denton Accident Severity thumbnail" loading="lazy">
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Denton Accident Severity</h3>
+          <p class="project-description">
+            Crash data analysis (time, location, environment) with severity prediction for safety insights.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Pandas</span><span class="tag">scikit-learn</span><span class="tag">Feature Eng.</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn-secondary btn-small" target="_blank" href="https://github.com/TrishaChandur"><i class="fab fa-github"></i> View Code</a>
+            <a class="btn btn-primary btn-small" href="#"><i class="fas fa-file-alt"></i> Case Study</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 5: Brain Tumor Detection -->
+      <article class="project-card v2">
+        <div class="project-thumb">
+          <img src="projects/brain-tumor.jpg" alt="Brain Tumor Detection thumbnail" loading="lazy">
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Brain Tumor Detection</h3>
+          <p class="project-description">
+            CNN-based medical imaging classifier with evaluation pipeline and reporting.
+          </p>
+          <div class="project-tags">
+            <span class="tag">TensorFlow</span><span class="tag">PyTorch</span><span class="tag">Computer Vision</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn-secondary btn-small" target="_blank" href="https://github.com/TrishaChandur"><i class="fab fa-github"></i> View Code</a>
+            <a class="btn btn-primary btn-small" href="#"><i class="fas fa-file-alt"></i> Case Study</a>
+          </div>
+        </div>
+      </article>
+
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Contact -->
-  <section id="contact" class="section contact-section">
-    <div class="container">
-      <h2 class="section-title" style="color:#fff !important; background:none !important; -webkit-text-fill-color:#fff !important;">
-        Let's Connect & Collaborate
-      </h2>
-      <p style="font-size:1.2rem; margin-bottom:2rem; opacity:.9;">
-        Happy to chat about BI, automation, analytics, or ML projects.
-      </p>
-      <div class="contact-grid two">
-        <a class="contact-item fade-in" href="https://www.linkedin.com/in/trisha-chandur/" target="_blank" rel="noreferrer">
-          <i class="fab fa-linkedin"></i>
-          <h3>Connect</h3>
-          <p>linkedin.com/in/trisha-chandur</p>
-        </a>
-        <a class="contact-item fade-in" href="https://github.com/TrishaChandur" target="_blank" rel="noreferrer">
-          <i class="fab fa-github"></i>
-          <h3>View Code</h3>
-          <p>github.com/TrishaChandur</p>
-        </a>
-      </div>
-    </div>
+ <div class="contact-grid two">
+  <a class="contact-item fade-in" href="https://www.linkedin.com/in/trisha-chandur/" target="_blank" rel="noreferrer">
+    <i class="fab fa-linkedin"></i>
+    <h3>LinkedIn</h3>
+    <p>Connect with me</p>
+    <div class="muted-link">linkedin.com/in/trisha-chandur</div>
+  </a>
+
+  <a class="contact-item fade-in" href="https://github.com/TrishaChandur" target="_blank" rel="noreferrer">
+    <i class="fab fa-github"></i>
+    <h3>GitHub</h3>
+    <p>View my code</p>
+    <div class="muted-link">github.com/TrishaChandur</div>
+  </a>
+</div>
+
   </section>
 
   <!-- Footer -->
