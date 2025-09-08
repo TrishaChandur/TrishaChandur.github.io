@@ -139,12 +139,6 @@
             50% { transform: scale(1.05); }
         }
 
-
-
-
-
-
-
         .cta-buttons {
             display: flex;
             gap: 1rem;
@@ -636,7 +630,9 @@
                         <div class="tech-icon"><img src="artificial-intelligence.png" alt="AI"></div>
                         <div class="tech-icon"><img src="deep-learning.png" alt="Deep Learning"></div>
                         <div class="tech-icon"><img src="tensorflow.png" alt="TensorFlow"></div>
-                        <!-- Removed ChatGPT & Claude per your request -->
+                        <!-- Optional (upload before enabling):
+                        <div class="tech-icon"><img src="huggingface.png" alt="Hugging Face"></div>
+                        -->
                     </div>
                 </div>
 
@@ -644,7 +640,7 @@
                     <h3><i class="fas fa-cloud"></i> Cloud & Big Data</h3>
                     <p>Scalable solutions on cloud platforms with big data processing</p>
                     <div class="tech-icons">
-                        <div class="tech-icon"><img src="aws.webp" alt="AWS"></div>
+                        <div class="tech-icon"><img src="icons8-aws-24.png" alt="AWS"></div>
                         <div class="tech-icon"><img src="icons8-aws-24.png" alt="AWS Services"></div>
                         <div class="tech-icon"><img src="spark.png" alt="Apache Spark"></div>
                         <div class="tech-icon"><img src="icons8-docker-50.png" alt="Docker"></div>
@@ -657,7 +653,7 @@
                     <div class="tech-icons">
                         <div class="tech-icon"><img src="database.png" alt="Database"></div>
                         <div class="tech-icon"><img src="mysql-database.png" alt="MySQL"></div>
-                        <div class="tech-icon"><img src="postgreSQL-Logo.wine.png" alt="PostgreSQL"></div>
+                        <div class="tech-icon"><img src="PostgreSQL-Logo.wine.png" alt="PostgreSQL"></div>
                         <div class="tech-icon"><img src="pandas.png" alt="Pandas"></div>
                         <div class="tech-icon"><img src="numpy.png" alt="NumPy"></div>
                     </div>
@@ -676,7 +672,9 @@
                     <h3><i class="fas fa-shield-alt"></i> Specialized Domains</h3>
                     <p>Domain expertise in finance, banking, healthcare and security domains</p>
                     <div class="tech-icons">
+                        <!-- Optional (upload before enabling):
                         <div class="tech-icon"><img src="healthai.jpg" alt="Health AI"></div>
+                        -->
                         <div class="tech-icon"><img src="cyber-security.png" alt="Cybersecurity"></div>
                     </div>
                 </div>
@@ -927,7 +925,7 @@
         // Create particles periodically
         setInterval(createParticle, 300);
 
-        // Contact form animation
+        // Contact item hover animation
         document.querySelectorAll('.contact-item').forEach(item => {
             item.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-10px) scale(1.05)';
@@ -1001,25 +999,26 @@
             progressBar.style.width = scrollPercent + '%';
         });
 
-        // Preload images for better performance
+        // Preload images for better performance (filenames & case match your repo)
         const imageUrls = [
             'profilepic.png',
             'artificial-intelligence.png',
-            'aws.webp',
             'deep-learning.png',
             'tensorflow.png',
             'database.png',
             'mysql-database.png',
-            'postgreSQL-Logo.wine.png',
+            'PostgreSQL-Logo.wine.png',
             'pandas.png',
             'numpy.png',
             'Tableau-Symbol.png',
             'powerbi.png',
-            'healthai.jpg',
             'cyber-security.png',
             'spark.png',
             'icons8-docker-50.png',
             'icons8-aws-24.png'
+            // Add these only after uploading the exact files:
+            // 'huggingface.png',
+            // 'healthai.jpg'
         ];
 
         imageUrls.forEach(url => {
@@ -1145,8 +1144,8 @@
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     animation: pulse 2s ease-in-out infinite;
     object-fit: cover;
-    object-position: center top; /* This will focus on the top part of your image */
-    display: block; /* Ensures proper centering */
+    object-position: center top; /* Focus on top part if needed */
+    display: block;
 }
             
             .skills-grid {
