@@ -117,17 +117,18 @@
             position: relative;
         }
 
-        .profile-img {
-            width: 716px;
-            height: 716px;
-            border-radius: 50%;
-            margin: 0 auto 2rem;
-            border: 5px solid rgba(255,255,255,0.3);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            animation: pulse 2s ease-in-out infinite;
-            object-fit: cover;
-            object-position: center;
-        }
+       .profile-img {
+    width: 712px;          /* Match your Canva export size */
+    height: 712px;         /* Keep it square */
+    border-radius: 50%;    /* Circular frame */
+    margin: 0 auto 2rem;   /* Center + bottom spacing */
+    border: 8px solid rgba(255, 255, 255, 0.5); /* Slightly thicker border for big size */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);    /* Softer shadow */
+    animation: pulse 2s ease-in-out infinite;
+    object-fit: cover;     /* Crops perfectly */
+    object-position: center top; /* Keeps your face centered */
+}
+
 .project-image i {
     font-size: 4rem;
     color: white;
