@@ -1,228 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfolio – Trisha Chandur</title>
-
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
-
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
-    :root{--b1:#667eea;--b2:#764ba2;--ink:#333;--sub:#666;--bg:#f8faff;--card:#fff;--chip:#f0f4ff}
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;color:#333;background:#f8faff}
 
-    /* nav */
-    nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);box-shadow:0 2px 18px rgba(0,0,0,.08)}
-    .nav-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
-    .logo{font-weight:800;background:linear-gradient(135deg,var(--b1),var(--b2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .nav-links{list-style:none;display:flex;gap:18px}
-    .nav-links a{font-weight:700;color:#333;text-decoration:none;position:relative}
-    .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:linear-gradient(135deg,var(--b1),var(--b2));transition:width .25s}
-    .nav-links a:hover::after{width:100%}
+    nav{position:fixed;top:0;width:100%;background:#fffccf00;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 0;box-shadow:0 2px 20px rgba(0,0,0,.08)}
+    .nav-container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 2rem}
+    .logo{font-weight:700;font-size:1.2rem;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .nav-links{display:flex;gap:1.25rem;list-style:none}
+    .nav-links a{text-decoration:none;color:#333;font-weight:500}
+    .nav-links a:hover{color:#667eea}
 
-    /* hero */
-    .hero{background:linear-gradient(135deg,var(--b1),var(--b2));color:#fff;text-align:center;padding:88px 16px 48px}
-    .hero h1{font-size:2.6rem;font-weight:800;margin-bottom:.6rem}
-    .hero p{max-width:800px;margin:0 auto;opacity:.96}
+    .hero{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;text-align:center;padding:8rem 1rem 4rem;margin-top:64px}
+    .hero h1{font-size:2.75rem;margin-bottom:.5rem}
+    .hero p{opacity:.9;max-width:700px;margin:0 auto}
 
-    /* filters */
-    .filter{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-    .container{max-width:1200px;margin:0 auto;padding:0 24px}
-    .filter-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:18px 0}
-    .filter-btn{padding:10px 18px;border:2px solid #e0e7ff;background:#fff;color:var(--b1);border-radius:999px;font-weight:800;cursor:pointer;transition:.2s}
-    .filter-btn:hover,.filter-btn.active{background:linear-gradient(135deg,var(--b1),var(--b2));color:#fff;border-color:transparent;transform:translateY(-2px)}
+    .container{max-width:1200px;margin:0 auto;padding:0 2rem}
 
-    /* grid */
-    .section{padding:48px 0}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px}
-    .card{background:var(--card);border-radius:18px;box-shadow:0 10px 34px rgba(0,0,0,.08);overflow:hidden;transition:.25s}
-    .card:hover{transform:translateY(-6px);box-shadow:0 20px 46px rgba(0,0,0,.12)}
-    .thumb{height:210px;background:linear-gradient(135deg,var(--b1),var(--b2));display:flex;align-items:center;justify-content:center}
-    .thumb i{font-size:56px;color:#fff}
-    .content{padding:22px}
-    .cat{display:inline-block;background:var(--chip);color:var(--b1);font-weight:800;border-radius:999px;padding:6px 12px;font-size:.8rem;margin-bottom:8px}
-    .title{font-size:1.25rem;font-weight:800;margin:.2rem 0 .5rem}
-    .desc{color:var(--sub);margin-bottom:14px}
-    .metrics{display:grid;grid-template-columns:repeat(3,minmax(80px,1fr));gap:8px;background:#f8faff;border-radius:14px;padding:12px;margin-bottom:12px}
-    .metric .v{color:var(--b1);font-weight:800}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
-    .chip{background:linear-gradient(135deg,var(--b1),var(--b2));color:#fff;border-radius:999px;padding:6px 10px;font-size:.82rem}
-    .links{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:8px;font-weight:800;border-radius:999px;padding:10px 14px;transition:.2s}
-    .btn.secondary{border:2px solid var(--b1);color:var(--b1)}
-    .btn.secondary:hover{background:var(--b1);color:#fff;transform:translateY(-2px)}
+    .filter{background:#fff;padding:1.25rem 0;box-shadow:0 1px 10px rgba(0,0,0,.05)}
+    .filter-row{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+    .chip{padding:.6rem 1.1rem;border:2px solid #e0e7ff;border-radius:999px;background:#fff;color:#667eea;font-weight:700;cursor:pointer}
+    .chip.active,.chip:hover{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-color:transparent}
 
-    /* achievements */
-    .achv{background:linear-gradient(135deg,var(--b1),var(--b2));color:#fff}
-    .section-title{font-size:2rem;text-align:center;font-weight:800;margin-bottom:24px;background:linear-gradient(135deg,var(--b1),var(--b2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .section-title.white{-webkit-text-fill-color:initial;color:#fff;background:none}
-    .achv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-    .achv-card{background:rgba(255,255,255,.1);border-radius:18px;padding:20px;text-align:center;backdrop-filter:blur(6px)}
-    .achv-icon{font-size:30px;margin-bottom:6px}
-    .achv-num{font-size:26px;font-weight:800}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:2rem;margin:3rem 0}
+    .card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.08);transition:transform .25s ease,box-shadow .25s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.12)}
+    .thumb{height:220px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center}
+    .thumb i{font-size:3.5rem;color:#fff}
+    .body{padding:1.6rem}
+    .kicker{display:inline-block;background:#f0f4ff;color:#667eea;font-size:.75rem;font-weight:700;border-radius:999px;padding:.35rem .8rem;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.5px}
+    .title{font-size:1.25rem;font-weight:800;margin-bottom:.5rem}
+    .desc{color:#666;margin-bottom:1rem}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;background:#f8faff;border-radius:12px;padding:1rem;margin-bottom:1rem}
+    .metric b{color:#667eea;font-size:1.05rem}
+    .tech{display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0 1rem}
+    .tag{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:999px;padding:.4rem .85rem;font-size:.8rem}
+    .links{display:flex;gap:.75rem;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.2rem;border-radius:999px;border:2px solid #667eea;color:#667eea;text-decoration:none;font-weight:700}
+    .btn:hover{background:#667eea;color:#fff}
+    .btn.primary{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-color:transparent}
+    .btn.primary:hover{filter:brightness(1.05)}
 
-    footer{background:#1a1a2e;color:#fff;text-align:center;padding:18px 0;margin-top:36px}
+    .achievements{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:4rem 0;margin:3rem 0}
+    .ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2rem}
+    .ach{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border-radius:16px;padding:1.75rem;text-align:center}
+    .ach .big{font-size:2.25rem;font-weight:800;margin:.25rem 0}
+    .ach .icon{font-size:2rem}
 
-    @media (max-width:600px){
-      .hero h1{font-size:2rem}
+    footer{background:#1a1a2e;color:#fff;text-align:center;padding:2rem 0;margin-top:2rem}
+
+    @media (max-width:768px){
+      .nav-links{display:none}
       .grid{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
-  <!-- nav -->
   <nav>
     <div class="nav-container">
       <div class="logo">Trisha Chandur</div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#skills">Skills</a></li>
-        <li><a href="#top">Portfolio</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="mailto:Trishachandur26@gmail.com">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- hero -->
-  <header class="hero" id="top">
+  <header class="hero">
     <h1>My Portfolio</h1>
-    <p>Curated projects across AI, analytics, and automation — each card includes a “View Code” link.</p>
+    <p>Selected projects across AI/ML, analytics, and automation—each with code links where available.</p>
   </header>
 
-  <!-- filters -->
-  <div class="filter">
+  <section class="filter">
     <div class="container">
       <div class="filter-row">
-        <button class="filter-btn active" data-filter="all">All</button>
-  </div>
-
-  <!-- grid -->
-  <section class="section">
-    <div class="container">
-      <div class="grid" id="grid">
-
- <!-- Offline AI Hiring Resume Screener -->
-      <div class="project-card fade-in">
-        <div class="project-image"><i class="fas fa-file-contract"></i></div>
-        <div class="project-content">
-          <h3 class="project-title">Offline AI Hiring Resume Screener</h3>
-          <p class="project-description">
-            LLM + RAG based resume screening with explainable scoring and recruiter-style Q&A.
-          </p>
-          <div class="project-tags">
-            <span class="tag">LLMs</span><span class="tag">RAG</span>
-            <span class="tag">LangChain</span><span class="tag">FAISS</span>
-          </div>
-          <div class="project-links">
-            <!-- TODO: replace with the exact repo when ready -->
-            <a class="project-link" target="_blank"
-               href="https://github.com/TrishaChandur">
-              <i class="fab fa-github"></i> View Code
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- UNT Police Dashboards -->
-      <div class="project-card fade-in">
-        <div class="project-image"><i class="fas fa-shield-alt"></i></div>
-        <div class="project-content">
-          <h3 class="project-title">Interactive Dashboards – UNT Police</h3>
-          <p class="project-description">
-            Tableau dashboards for calls for service, crime trends, operations and outreach analytics.
-          </p>
-          <div class="project-tags">
-            <span class="tag">Tableau</span><span class="tag">SQL</span><span class="tag">Analytics</span>
-          </div>
-          <div class="project-links">
-            <!-- TODO: replace with the exact repo or public workbook link -->
-            <a class="project-link" target="_blank"
-               href="https://github.com/TrishaChandur">
-              <i class="fab fa-github"></i> View Code
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Data Warehouse Project -->
-      <div class="project-card fade-in">
-        <div class="project-image"><i class="fas fa-database"></i></div>
-        <div class="project-content">
-          <h3 class="project-title">Data Warehouse Project</h3>
-          <p class="project-description">
-            SQL Server warehouse using Medallion architecture (Bronze/Silver/Gold) with ETL and star-schema models.
-          </p>
-          <div class="project-tags">
-            <span class="tag">SQL Server</span><span class="tag">ETL</span>
-            <span class="tag">Data Modeling</span><span class="tag">Analytics</span>
-          </div>
-          <div class="project-links">
-            <!-- TODO: replace with the exact repo -->
-            <a class="project-link" target="_blank"
-               href="https://github.com/TrishaChandur">
-              <i class="fab fa-github"></i> View Code
-            </a>
-          </div>
-        </div>
-      </div>
-
-        <!-- Brain Tumor -->
-        <article class="card" data-cat="healthcare ai-ml">
-          <div class="thumb"><i class="fas fa-brain"></i></div>
-          <div class="content">
-            <span class="cat">Medical AI</span>
-            <h3 class="title">Brain Tumor Detection</h3>
-            <p class="desc">CNNs with attention for MRI-based tumor detection and classification.</p>
-            <div class="metrics">
-              <div class="metric"><span class="v">96%</span><div class="l">Accuracy</div></div>
-              <div class="metric"><span class="v">80%</span><div class="l">Time Saved</div></div>
-              <div class="metric"><span class="v">99.2%</span><div class="l">Sensitivity</div></div>
-            </div>
-            <div class="chips">
-              <span class="chip">TensorFlow</span><span class="chip">CNN</span><span class="chip">Segmentation</span><span class="chip">Transfer Learning</span>
-            </div>
-            <div class="links">
-              <a class="btn secondary" target="_blank" rel="noopener" href="https://github.com/TrishaChandur"></i> View Code</a>
-            </div>
-          </div>
-        </article>
-  </section>
-
-  <!-- achievements -->
-  <section class="section achv">
-    <div class="container">
-      <h2 class="section-title white">Career Achievements</h2>
-      <div class="achv-grid">
-        <div class="achv-card"><div class="achv-icon">💰</div><div class="achv-num">$3.5M+</div><div>Business Value Generated</div></div>
-        <div class="achv-card"><div class="achv-icon">🎓</div><div class="achv-num">20+</div><div>Students & Professionals Mentored</div></div>
-        <div class="achv-card"><div class="achv-icon">🏆</div><div class="achv-num">95%</div><div>Project Success Rate</div></div>
-        <div class="achv-card"><div class="achv-icon">🚀</div><div class="achv-num">70%</div><div>Average Performance Improvement</div></div>
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="ai">AI & ML</button>
+        <button class="chip" data-filter="health">Healthcare</button>
+        <button class="chip" data-filter="bi">Business Intelligence</button>
+        <button class="chip" data-filter="de">Data Engineering</button>
       </div>
     </div>
   </section>
 
-  <footer><div class="container">&copy; <span id="y"></span> Trisha Chandur</div></footer>
+  <main id="portfolio" class="container">
+    <div class="grid" id="grid">
+      <!-- Brain Tumor -->
+      <article class="card" data-cat="ai health">
+        <div class="thumb"><i class="fas fa-brain"></i></div>
+        <div class="body">
+          <span class="kicker">Medical AI</span>
+          <h3 class="title">Brain Tumor Detection System</h3>
+          <p class="desc">Deep learning pipeline for MRI-based tumor detection and multi-class classification using attention-equipped CNNs.</p>
+          <div class="metrics">
+            <div class="metric"><b>96%</b><div>Accuracy</div></div>
+            <div class="metric"><b>99.2%</b><div>Sensitivity</div></div>
+            <div class="metric"><b>80%</b><div>Time Saved</div></div>
+          </div>
+          <div class="tech">
+            <span class="tag">TensorFlow</span><span class="tag">CNN</span><span class="tag">Segmentation</span><span class="tag">Transfer Learning</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://github.com/TrishaChandur" target="_blank" rel="noopener"><i class="fab fa-github"></i>View Code</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Resume Screener -->
+      <article class="card" data-cat="ai">
+        <div class="thumb"><i class="fas fa-file-contract"></i></div>
+        <div class="body">
+          <span class="kicker">LLM App</span>
+          <h3 class="title">Offline AI Hiring Resume Screener</h3>
+          <p class="desc">RAG-based system with GPT-style models to extract and summarize key points, cutting manual review over 50%.</p>
+          <div class="metrics">
+            <div class="metric"><b>50%+</b><div>Time Saved</div></div>
+            <div class="metric"><b>95%</b><div>Precision</div></div>
+            <div class="metric"><b>Offline</b><div>Mode</div></div>
+          </div>
+          <div class="tech">
+            <span class="tag">RAG</span><span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">Streamlit</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://github.com/TrishaChandur" target="_blank" rel="noopener"><i class="fab fa-github"></i>View Code</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- UNT Police Dashboards -->
+      <article class="card" data-cat="bi">
+        <div class="thumb"><i class="fas fa-shield-alt"></i></div>
+        <div class="body">
+          <span class="kicker">Business Intelligence</span>
+          <h3 class="title">Interactive Dashboards – UNT Police</h3>
+          <p class="desc">Integrated CFS, crime trends, and outreach data in Tableau to identify hotspots and inform resource allocation.</p>
+          <div class="metrics">
+            <div class="metric"><b>3+</b><div>Dashboards</div></div>
+            <div class="metric"><b>Real-time</b><div>Refresh</div></div>
+            <div class="metric"><b>SQL</b><div>Backend</div></div>
+          </div>
+          <div class="tech">
+            <span class="tag">Tableau</span><span class="tag">SQL</span><span class="tag">MongoDB</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://github.com/TrishaChandur" target="_blank" rel="noopener"><i class="fab fa-github"></i>View Code</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Data Warehouse -->
+      <article class="card" data-cat="de bi">
+        <div class="thumb"><i class="fas fa-database"></i></div>
+        <div class="body">
+          <span class="kicker">Data Engineering</span>
+          <h3 class="title">SQL Server Data Warehouse (Medallion)</h3>
+          <p class="desc">Bronze → Silver → Gold layers with ETL, star schema modeling, and tuned analytics queries.</p>
+          <div class="metrics">
+            <div class="metric"><b>ETL</b><div>Pipelines</div></div>
+            <div class="metric"><b>Star</b><div>Schema</div></div>
+            <div class="metric"><b>Optimized</b><div>Queries</div></div>
+          </div>
+          <div class="tech">
+            <span class="tag">SQL Server</span><span class="tag">ETL</span><span class="tag">Modeling</span><span class="tag">Analytics</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://github.com/TrishaChandur" target="_blank" rel="noopener"><i class="fab fa-github"></i>View Code</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Achievements -->
+  <section id="achievements" class="achievements">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;color:#fff;">Career Achievements</h2>
+      <div class="ach-grid">
+        <div class="ach"><div class="icon">💰</div><div class="big">$3.5M+</div><div>Business Value Generated</div></div>
+        <div class="ach"><div class="icon">🎓</div><div class="big">20+</div><div>Students Mentored</div></div>
+        <div class="ach"><div class="icon">🏆</div><div class="big">95%</div><div>Project Success Rate</div></div>
+        <div class="ach"><div class="icon">🚀</div><div class="big">70%</div><div>Avg. Performance Improvement</div></div>
+        <div class="ach"><div class="icon">🤝</div><div class="big">15+</div><div>Cross-Functional Teams Led</div></div>
+        <div class="ach"><div class="icon">⭐</div><div class="big">3.8</div><div>Master's GPA</div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="y"></span> Trisha Chandur. Built with 💜.</p>
+    </div>
+  </footer>
 
   <script>
+    // Year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // filters
-    const btns=[...document.querySelectorAll('.filter-btn')];
+    // Simple filter
+    const chips=[...document.querySelectorAll('.chip')];
     const cards=[...document.querySelectorAll('.card')];
-    btns.forEach(b=>b.addEventListener('click',()=>{
-      btns.forEach(x=>x.classList.remove('active'));
-      b.classList.add('active');
-      const f=b.dataset.filter;
-      cards.forEach(c=>{
-        if(f==='all'){ c.style.display='block'; return; }
-        const cats=c.getAttribute('data-cat').split(' ');
-        c.style.display = cats.includes(f) ? 'block' : 'none';
+    chips.forEach(ch=>{
+      ch.addEventListener('click',()=>{
+        chips.forEach(c=>c.classList.remove('active'));
+        ch.classList.add('active');
+        const f=ch.dataset.filter;
+        cards.forEach(card=>{
+          if(f==='all'){ card.style.display='block'; return; }
+          const cats = (card.dataset.cat||'').split(' ');
+          card.style.display = cats.includes(f) ? 'block' : 'none';
+        });
       });
-      window.scrollTo({top:document.querySelector('.filter').offsetTop-70,behavior:'smooth'});
-    }));
+    });
   </script>
 </body>
 </html>
