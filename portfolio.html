@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - Trisha Chandur</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;line-height:1.6;color:#333;background:#f8faff}
+
+    /* nav */
+    nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.96);
+      backdrop-filter:blur(10px);z-index:1000;padding:1rem 0;box-shadow:0 2px 20px rgba(0,0,0,.08)}
+    .nav-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem}
+    .logo{font-weight:800;font-size:1.25rem;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .nav-links{display:flex;gap:1.5rem;list-style:none}
+    .nav-links a{text-decoration:none;color:#333;font-weight:600}
+
+    /* hero */
+    .portfolio-hero{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;text-align:center;padding:7rem 0 3rem;margin-top:64px}
+    .portfolio-hero h1{font-size:2.8rem;font-weight:800;margin-bottom:.6rem}
+    .portfolio-hero p{max-width:740px;margin:0 auto;opacity:.92}
+
+    .container{max-width:1200px;margin:0 auto;padding:0 2rem}
+
+    /* grid */
+    .portfolio-section{padding:3rem 0}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2rem}
+    .project-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 10px 34px rgba(17,24,39,.08);transition:.25s}
+    .project-card:hover{transform:translateY(-6px);box-shadow:0 18px 50px rgba(17,24,39,.12)}
+    .project-image{height:210px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center}
+    .project-image i{font-size:3rem;color:#fff}
+    .project-content{padding:1.6rem}
+    .project-title{font-size:1.25rem;font-weight:800;margin:.3rem 0 .6rem}
+    .project-description{color:#596080;margin-bottom:1rem}
+    .project-tech{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
+    .tech-tag{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:999px;padding:.35rem .75rem;font-size:.8rem;font-weight:600}
+    .project-links{margin-top:.8rem}
+    .project-link{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;font-weight:800;border-radius:999px;padding:.6rem 1rem;border:2px solid #667eea;color:#667eea}
+    .project-link:hover{background:#667eea;color:#fff}
+
+    /* achievements */
+    .achievements-section{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:3.2rem 0;margin-top:2rem}
+    .section-title{font-size:2.1rem;font-weight:900;text-align:center;margin-bottom:1.5rem}
+    .achievements-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.25rem}
+    .achievement-card{text-align:center;padding:1.6rem;background:rgba(255,255,255,.12);border-radius:18px;backdrop-filter:blur(10px);transition:.25s}
+    .achievement-card:hover{transform:translateY(-4px)}
+    .achievement-icon{font-size:2rem;margin-bottom:.4rem}
+    .achievement-number{font-size:1.9rem;font-weight:900;margin-bottom:.2rem}
+    .achievement-label{opacity:.96}
+
+    footer{background:#1a1a2e;color:#fff;text-align:center;padding:1.4rem 0;margin-top:2rem}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Trisha Chandur</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="portfolio-hero">
+    <div class="container">
+      <h1>My Portfolio</h1>
+      <p>Explore my journey in AI, Data Analytics, and Business Intelligence. Each project links directly to my GitHub code.</p>
+    </div>
+  </section>
+
+  <section id="portfolio" class="portfolio-section">
+    <div class="container">
+      <div class="portfolio-grid">
+
+        <!-- Brain Tumor -->
+        <div class="project-card">
+          <div class="project-image"><i class="fas fa-brain"></i></div>
+          <div class="project-content">
+            <h3 class="project-title">Brain Tumor Detection System</h3>
+            <p class="project-description">CNN-based model for automated brain tumor detection and classification from MRI scans.</p>
+            <div class="project-tech">
+              <span class="tech-tag">TensorFlow</span><span class="tech-tag">CNN</span><span class="tech-tag">Medical Imaging</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" target="_blank" href="https://github.com/TrishaChandur/Brain-Tumor-Detection-System">
+                <i class="fab fa-github"></i> Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resume Screener -->
+        <div class="project-card">
+          <div class="project-image"><i class="fas fa-file-contract"></i></div>
+          <div class="project-content">
+            <h3 class="project-title">AI Resume Screener</h3>
+            <p class="project-description">LLM-based tool using GPT-4 + RAG to screen resumes and extract candidate insights.</p>
+            <div class="project-tech">
+              <span class="tech-tag">LLMs</span><span class="tech-tag">LangChain</span><span class="tech-tag">RAG</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" target="_blank" href="https://github.com/TrishaChandur/AI-Resume-Screener">
+                <i class="fab fa-github"></i> Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- UNT Dashboards -->
+        <div class="project-card">
+          <div class="project-image"><i class="fas fa-shield-alt"></i></div>
+          <div class="project-content">
+            <h3 class="project-title">UNT Police Dashboards</h3>
+            <p class="project-description">Interactive Tableau dashboards integrating calls, crime trends, and outreach data.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Tableau</span><span class="tech-tag">SQL</span><span class="tech-tag">MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" target="_blank" href="https://github.com/TrishaChandur/UNT-Police-Dashboards">
+                <i class="fab fa-github"></i> Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Warehouse -->
+        <div class="project-card">
+          <div class="project-image"><i class="fas fa-database"></i></div>
+          <div class="project-content">
+            <h3 class="project-title">Data Warehouse Project</h3>
+            <p class="project-description">SQL Server Data Warehouse with ETL pipelines and Medallion Architecture.</p>
+            <div class="project-tech">
+              <span class="tech-tag">SQL Server</span><span class="tech-tag">ETL</span><span class="tech-tag">Data Modeling</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" target="_blank" href="https://github.com/TrishaChandur/Data-Warehouse-Project">
+                <i class="fab fa-github"></i> Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section id="achievements" class="achievements-section">
+    <div class="container">
+      <h2 class="section-title">Career Achievements</h2>
+      <div class="achievements-grid">
+        <div class="achievement-card"><div class="achievement-icon">💰</div><div class="achievement-number">$3.5M+</div><div class="achievement-label">Business Impact</div></div>
+        <div class="achievement-card"><div class="achievement-icon">🎓</div><div class="achievement-number">20+</div><div class="achievement-label">Students Mentored</div></div>
+        <div class="achievement-card"><div class="achievement-icon">🏆</div><div class="achievement-number">95%</div><div class="achievement-label">Project Success Rate</div></div>
+        <div class="achievement-card"><div class="achievement-icon">🚀</div><div class="achievement-number">70%</div><div class="achievement-label">Performance Improvement</div></div>
+        <div class="achievement-card"><div class="achievement-icon">🤝</div><div class="achievement-number">5+</div><div class="achievement-label">Cross-Functional Teams Led</div></div>
+        <div class="achievement-card"><div class="achievement-icon">⭐</div><div class="achievement-number">3.8</div><div class="achievement-label">Master’s GPA</div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer><div class="container">&copy; <span id="yr"></span> Trisha Chandur.</div></footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
