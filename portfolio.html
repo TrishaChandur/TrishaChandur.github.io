@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfolio – Trisha Chandur</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
@@ -10,48 +10,69 @@
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:'Inter',sans-serif;color:#333;background:#f8faff}
 
-    nav{position:fixed;top:0;width:100%;background:#fffccf00;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 0;box-shadow:0 2px 20px rgba(0,0,0,.08)}
+    /* Nav */
+    nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 0;box-shadow:0 2px 20px rgba(0,0,0,.08)}
     .nav-container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 2rem}
     .logo{font-weight:700;font-size:1.2rem;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
     .nav-links{display:flex;gap:1.25rem;list-style:none}
     .nav-links a{text-decoration:none;color:#333;font-weight:500}
     .nav-links a:hover{color:#667eea}
 
+    /* Hero */
     .hero{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;text-align:center;padding:8rem 1rem 4rem;margin-top:64px}
     .hero h1{font-size:2.75rem;margin-bottom:.5rem}
     .hero p{opacity:.9;max-width:700px;margin:0 auto}
 
     .container{max-width:1200px;margin:0 auto;padding:0 2rem}
 
+    /* Filter */
     .filter{background:#fff;padding:1.25rem 0;box-shadow:0 1px 10px rgba(0,0,0,.05)}
     .filter-row{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
     .chip{padding:.6rem 1.1rem;border:2px solid #e0e7ff;border-radius:999px;background:#fff;color:#667eea;font-weight:700;cursor:pointer}
     .chip.active,.chip:hover{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-color:transparent}
 
+    /* Grid wrapper */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:2rem;margin:3rem 0}
-    .card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.08);transition:transform .25s ease,box-shadow .25s ease}
-    .card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.12)}
-    .thumb{height:220px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center}
-    .thumb i{font-size:3.5rem;color:#fff}
-    .body{padding:1.6rem}
-    .kicker{display:inline-block;background:#f0f4ff;color:#667eea;font-size:.75rem;font-weight:700;border-radius:999px;padding:.35rem .8rem;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.5px}
-    .title{font-size:1.25rem;font-weight:800;margin-bottom:.5rem}
-    .desc{color:#666;margin-bottom:1rem}
-    .metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;background:#f8faff;border-radius:12px;padding:1rem;margin-bottom:1rem}
-    .metric b{color:#667eea;font-size:1.05rem}
-    .tech{display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0 1rem}
-    .tag{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:999px;padding:.4rem .85rem;font-size:.8rem}
-    .links{display:flex;gap:.75rem;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.2rem;border-radius:999px;border:2px solid #667eea;color:#667eea;text-decoration:none;font-weight:700}
-    .btn:hover{background:#667eea;color:#fff}
-    .btn.primary{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-color:transparent}
-    .btn.primary:hover{filter:brightness(1.05)}
 
-    .achievements{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:4rem 0;margin:3rem 0}
-    .ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2rem}
-    .ach{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border-radius:16px;padding:1.75rem;text-align:center}
-    .ach .big{font-size:2.25rem;font-weight:800;margin:.25rem 0}
-    .ach .icon{font-size:2rem}
+    /* --- Your project-card styles (to match your markup) --- */
+    .project-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.08);transition:transform .25s ease,box-shadow .25s ease}
+    .project-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.12)}
+    .project-image{height:220px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center}
+    .project-image i{font-size:3.5rem;color:#fff}
+    .project-content{padding:1.6rem}
+    .project-category{display:inline-block;background:#f0f4ff;color:#667eea;font-size:.75rem;font-weight:700;border-radius:999px;padding:.35rem .8rem;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.5px}
+    .project-title{font-size:1.25rem;font-weight:800;margin-bottom:.5rem}
+    .project-description{color:#666;margin-bottom:1rem;line-height:1.7}
+
+    .project-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;background:#f8faff;border-radius:12px;padding:1rem;margin-bottom:1rem}
+    .metric{text-align:center}
+    .metric .metric-value{color:#667eea;font-weight:800;font-size:1.05rem;display:block}
+    .metric .metric-label{font-size:.75rem;color:#666;text-transform:uppercase;letter-spacing:.4px}
+
+    .project-tech{display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0 1rem}
+    .tech-tag,.tag{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:999px;padding:.4rem .85rem;font-size:.8rem}
+
+    .project-links{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.5rem}
+    .project-link{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.2rem;border-radius:999px;border:2px solid #667eea;color:#667eea;text-decoration:none;font-weight:700}
+    .project-link:hover{background:#667eea;color:#fff}
+    .link-secondary{} /* (kept for compatibility) */
+
+    /* Achievements (your section used different class names) */
+    .achievements-section{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:4rem 0;margin:3rem 0}
+    .section-title{font-size:2rem;font-weight:800;text-align:center}
+    .achievements-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2rem}
+    .achievement-card{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border-radius:16px;padding:1.75rem;text-align:center}
+    .achievement-icon{font-size:2rem}
+    .achievement-number{font-size:2rem;font-weight:800;margin:.25rem 0}
+    .achievement-label{opacity:.95}
+
+    /* Contact block at bottom (reusing minimal styles) */
+    .contact-section{background:#fff;padding:3rem 0;text-align:center}
+    .contact-cta{max-width:700px;margin:0 auto 1.25rem;color:#555;line-height:1.75}
+    .contact-buttons{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.2rem;border-radius:999px;border:2px solid #667eea;color:#667eea;text-decoration:none;font-weight:700}
+    .btn:hover{background:#667eea;color:#fff}
+    .btn.btn-primary{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-color:transparent}
 
     footer{background:#1a1a2e;color:#fff;text-align:center;padding:2rem 0;margin-top:2rem}
 
@@ -62,6 +83,7 @@
   </style>
 </head>
 <body>
+  <!-- Nav -->
   <nav>
     <div class="nav-container">
       <div class="logo">Trisha Chandur</div>
@@ -74,277 +96,285 @@
     </div>
   </nav>
 
+  <!-- Hero -->
   <header class="hero">
     <h1>My Portfolio</h1>
     <p>Explore my journey in AI engineering, data science, and technology innovation. Each project represents a step forward in building intelligent solutions that drive real business value.</p>
   </header>
 
+  <!-- Filter -->
   <section class="filter">
     <div class="container">
       <div class="filter-row">
+        <!-- IMPORTANT: these data-filter values must match the tokens inside each card's data-category -->
         <button class="chip active" data-filter="all">All Projects</button>
-        <button class="chip" data-filter="ai">AI & Machine Learning</button>
-        <button class="chip" data-filter="health">Healthcare AI</button>
-        <button class="chip" data-filter="bi">Business Intelligence</button>
-        <button class="chip" data-filter="de">Data Engineering</button>
+        <button class="chip" data-filter="ai-ml">AI &amp; Machine Learning</button>
+        <button class="chip" data-filter="healthcare">Healthcare AI</button>
+        <button class="chip" data-filter="analytics">Business Intelligence</button>
+        <button class="chip" data-filter="data-eng">Data Engineering</button>
+        <button class="chip" data-filter="security">Security</button>
       </div>
     </div>
   </section>
 
+  <!-- Portfolio Grid -->
   <main id="portfolio" class="container">
     <div class="grid" id="grid">
+
       <!-- Brain Tumor -->
-   <div class="project-card fade-in" data-category="healthcare ai-ml">
-                    <div class="project-image">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-category">Medical AI</span>
-                        <h3 class="project-title">Brain Tumor Detection System</h3>
-                        <p class="project-description">
-                            State-of-the-art deep learning system for automated brain tumor detection and classification 
-                            from MRI scans. Implemented advanced CNN architectures with attention mechanisms for precise 
-                            localization and multi-class tumor classification.
-                        </p>
-                        <div class="project-metrics">
-                            <div class="metric">
-                                <span class="metric-value">96%</span>
-                                <span class="metric-label">Detection Accuracy</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">80%</span>
-                                <span class="metric-label">Time Savings</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">99.2%</span>
-                                <span class="metric-label">Sensitivity</span>
-                            </div>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">CNN</span>
-                            <span class="tech-tag">Medical Imaging</span>
-                            <span class="tech-tag">Image Segmentation</span>
-                            <span class="tech-tag">Transfer Learning</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/TrishaChandur/Brain-Tumor-Detection-System" class="project-link link-secondary">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
+      <div class="project-card fade-in" data-category="healthcare ai-ml">
+        <div class="project-image">
+          <i class="fas fa-brain"></i>
+        </div>
+        <div class="project-content">
+          <span class="project-category">Medical AI</span>
+          <h3 class="project-title">Brain Tumor Detection System</h3>
+          <p class="project-description">
+            State-of-the-art deep learning system for automated brain tumor detection and classification from MRI scans.
+            Implemented advanced CNN architectures with attention mechanisms for precise localization and multi-class tumor classification.
+          </p>
 
-      <!-- Resume Screener -->
-<div class="project-card fade-in" data-category="ai-ml">
-  <div class="project-image">
-    <i class="fas fa-file-contract"></i>
-  </div>
-  <div class="project-content">
-    <span class="project-category">LLM Application</span>
-    <h3 class="project-title">Offline AI Hiring Resume Screener</h3>
-    <p class="project-description">
-      LLM-powered resume screener that extracts key qualifications and scores candidate fit.
-      Uses RAG with local embeddings for offline inference and structured JSON outputs for recruiters.
-    </p>
+          <div class="project-metrics">
+            <div class="metric">
+              <span class="metric-value">96%</span>
+              <span class="metric-label">Detection Accuracy</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">80%</span>
+              <span class="metric-label">Time Savings</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">99.2%</span>
+              <span class="metric-label">Sensitivity</span>
+            </div>
+          </div>
 
-    <div class="project-metrics">
-      <div class="metric">
-        <span class="metric-value">50%+</span>
-        <span class="metric-label">Review Time Cut</span>
+          <div class="project-tech">
+            <span class="tech-tag">TensorFlow</span>
+            <span class="tech-tag">CNN</span>
+            <span class="tech-tag">Medical Imaging</span>
+            <span class="tech-tag">Image Segmentation</span>
+            <span class="tech-tag">Transfer Learning</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/TrishaChandur/Brain-Tumor-Detection-System" class="project-link link-secondary" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i> Code
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="metric">
-        <span class="metric-value">95%</span>
-        <span class="metric-label">Extraction Accuracy</span>
+
+      <!-- Offline AI Hiring Resume Screener -->
+      <div class="project-card fade-in" data-category="ai-ml">
+        <div class="project-image">
+          <i class="fas fa-file-contract"></i>
+        </div>
+        <div class="project-content">
+          <span class="project-category">LLM Application</span>
+          <h3 class="project-title">Offline AI Hiring Resume Screener</h3>
+          <p class="project-description">
+            LLM-powered resume screener that extracts key qualifications and scores candidate fit.
+            Uses RAG with local embeddings for offline inference and structured JSON outputs for recruiters.
+          </p>
+
+          <div class="project-metrics">
+            <div class="metric">
+              <span class="metric-value">50%+</span>
+              <span class="metric-label">Review Time Cut</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">95%</span>
+              <span class="metric-label">Extraction Accuracy</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">0</span>
+              <span class="metric-label">Cloud Calls (Offline)</span>
+            </div>
+          </div>
+
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">LLMs</span>
+            <span class="tech-tag">RAG</span>
+            <span class="tech-tag">LangChain</span>
+            <span class="tech-tag">FAISS</span>
+            <span class="tech-tag">Vertex AI</span>
+            <span class="tech-tag">Streamlit</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/TrishaChandur/Offline-AI-Hiring-Resume-Screener" class="project-link link-secondary" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i> Code
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="metric">
-        <span class="metric-value">0</span>
-        <span class="metric-label">Cloud Calls (Offline)</span>
+
+      <!-- Interactive Dashboards – UNT Police -->
+      <div class="project-card fade-in" data-category="analytics security">
+        <div class="project-image">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <div class="project-content">
+          <span class="project-category">Business Intelligence</span>
+          <h3 class="project-title">Interactive Dashboards – UNT Police</h3>
+          <p class="project-description">
+            Centralized Tableau dashboards blending calls-for-service, crime trends, and outreach data
+            for hotspot identification, shift planning, and community engagement reporting.
+          </p>
+
+          <div class="project-metrics">
+            <div class="metric">
+              <span class="metric-value">12+</span>
+              <span class="metric-label">KPIs Tracked</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">30%</span>
+              <span class="metric-label">Faster Briefings</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">24/7</span>
+              <span class="metric-label">Self-Serve Access</span>
+            </div>
+          </div>
+
+          <div class="project-tech">
+            <span class="tech-tag">Tableau</span>
+            <span class="tech-tag">SQL</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">ETL</span>
+            <span class="tech-tag">Data Modeling</span>
+            <span class="tech-tag">Geo Analytics</span>
+            <span class="tech-tag">Dashboard UX</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/TrishaChandur" class="project-link link-secondary" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i> Code
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="project-tech">
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">LLMs</span>
-      <span class="tech-tag">RAG</span>
-      <span class="tech-tag">LangChain</span>
-      <span class="tech-tag">FAISS</span>
-      <span class="tech-tag">Vertex AI</span>
-      <span class="tech-tag">Streamlit</span>
-    </div>
+      <!-- Data Warehouse – Medallion Architecture -->
+      <div class="project-card fade-in" data-category="analytics data-eng">
+        <div class="project-image">
+          <i class="fas fa-database"></i>
+        </div>
+        <div class="project-content">
+          <span class="project-category">Data Engineering</span>
+          <h3 class="project-title">Data Warehouse – Medallion Architecture</h3>
+          <p class="project-description">
+            End-to-end SQL Server data warehouse following Bronze–Silver–Gold layers.
+            Built incremental ETL, star-schema marts, and performance-tuned analytical queries.
+          </p>
 
-    <div class="project-links">
-      <a href="https://github.com/TrishaChandur/Offline-AI-Hiring-Resume-Screener" class="project-link link-secondary" target="_blank" rel="noopener">
-        <i class="fab fa-github"></i> Code
-      </a>
-    </div>
-  </div>
-</div>
+          <div class="project-metrics">
+            <div class="metric">
+              <span class="metric-value">3×</span>
+              <span class="metric-label">Query Speedup</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">99.9%</span>
+              <span class="metric-label">Load SLA</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">0%</span>
+              <span class="metric-label">Data Duplication</span>
+            </div>
+          </div>
 
-      <!-- UNT Police Dashboards -->
-<div class="project-card fade-in" data-category="analytics security">
-  <div class="project-image">
-    <i class="fas fa-shield-alt"></i>
-  </div>
-  <div class="project-content">
-    <span class="project-category">Business Intelligence</span>
-    <h3 class="project-title">Interactive Dashboards – UNT Police</h3>
-    <p class="project-description">
-      Centralized Tableau dashboards blending calls-for-service, crime trends, and outreach data
-      for hotspot identification, shift planning, and community engagement reporting.
-    </p>
+          <div class="project-tech">
+            <span class="tech-tag">SQL Server</span>
+            <span class="tech-tag">ETL</span>
+            <span class="tech-tag">SSIS / Python</span>
+            <span class="tech-tag">Star Schema</span>
+            <span class="tech-tag">Dimensional Modeling</span>
+            <span class="tech-tag">Medallion Architecture</span>
+            <span class="tech-tag">Performance Tuning</span>
+            <span class="tech-tag">CI/CD</span>
+          </div>
 
-    <div class="project-metrics">
-      <div class="metric">
-        <span class="metric-value">12+</span>
-        <span class="metric-label">KPIs Tracked</span>
+          <div class="project-links">
+            <a href="https://github.com/TrishaChandur/Data-Warehouse-Project" class="project-link link-secondary" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i> Code
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="metric">
-        <span class="metric-value">30%</span>
-        <span class="metric-label">Faster Briefings</span>
-      </div>
-      <div class="metric">
-        <span class="metric-value">24/7</span>
-        <span class="metric-label">Self-Serve Access</span>
-      </div>
+
     </div>
-
-    <div class="project-tech">
-      <span class="tech-tag">Tableau</span>
-      <span class="tech-tag">SQL</span>
-      <span class="tech-tag">MongoDB</span>
-      <span class="tech-tag">ETL</span>
-      <span class="tech-tag">Data Modeling</span>
-      <span class="tech-tag">Geo Analytics</span>
-      <span class="tech-tag">Dashboard UX</span>
-    </div>
-
-    <div class="project-links">
-      <a href="https://github.com/TrishaChandur" class="project-link link-secondary" target="_blank" rel="noopener">
-        <i class="fab fa-github"></i> Code
-      </a>
-    </div>
-  </div>
-</div>
-
-
-      <!-- Data Warehouse -->
-<div class="project-card fade-in" data-category="analytics data-eng">
-  <div class="project-image">
-    <i class="fas fa-database"></i>
-  </div>
-  <div class="project-content">
-    <span class="project-category">Data Engineering</span>
-    <h3 class="project-title">Data Warehouse – Medallion Architecture</h3>
-    <p class="project-description">
-      End-to-end SQL Server data warehouse following Bronze–Silver–Gold layers.
-      Built incremental ETL, star-schema marts, and performance-tuned analytical queries.
-    </p>
-
-    <div class="project-metrics">
-      <div class="metric">
-        <span class="metric-value">3×</span>
-        <span class="metric-label">Query Speedup</span>
-      </div>
-      <div class="metric">
-        <span class="metric-value">99.9%</span>
-        <span class="metric-label">Load SLA</span>
-      </div>
-      <div class="metric">
-        <span class="metric-value">0%</span>
-        <span class="metric-label">Data Duplication</span>
-      </div>
-    </div>
-
-    <div class="project-tech">
-      <span class="tech-tag">SQL Server</span>
-      <span class="tech-tag">ETL</span>
-      <span class="tech-tag">SSIS / Python</span>
-      <span class="tech-tag">Star Schema</span>
-      <span class="tech-tag">Dimensional Modeling</span>
-      <span class="tech-tag">Medallion Architecture</span>
-      <span class="tech-tag">Performance Tuning</span>
-      <span class="tech-tag">CI/CD</span>
-    </div>
-
-    <div class="project-links">
-      <a href="https://github.com/TrishaChandur/Data-Warehouse-Project" class="project-link link-secondary" target="_blank" rel="noopener">
-        <i class="fab fa-github"></i> Code
-      </a>
-    </div>
-  </div>
-</div>
-
+  </main>
 
   <!-- Achievements -->
-
-<section class="achievements-section">
-        <div class="container">
-            <h2 class="section-title" style="color: white;">Career Achievements</h2>
-            <div class="achievements-grid">
-                <div class="achievement-card fade-in">
-                    <div class="achievement-icon">💰</div>
-                    <div class="achievement-number">$3.5M+</div>
-                    <div class="achievement-label">Business Value Generated</div>
-                </div>
-                <div class="achievement-card fade-in">
-                    <div class="achievement-icon">🎓</div>
-                    <div class="achievement-number">20+</div>
-                    <div class="achievement-label">Students & Professionals Mentored</div>
-                </div>
-                <div class="achievement-card fade-in">
-                    <div class="achievement-icon">🏆</div>
-                    <div class="achievement-number">95%</div>
-                    <div class="achievement-label">Project Success Rate</div>
-                </div>
-                <div class="achievement-card fade-in">
-                    <div class="achievement-icon">🚀</div>
-                    <div class="achievement-number">70%</div>
-                    <div class="achievement-label">Average Performance Improvement</div>
-                </div>
-                <div class="achievement-card fade-in">
-                    <div class="achievement-icon">🤝</div>
-                    <div class="achievement-number">7+</div>
-                    <div class="achievement-label">Cross-Functional Teams Led</div>
-                </div>
-                <div class="achievement-card fade-in">
-                    <div class="achievement-icon">⭐</div>
-                    <div class="achievement-number">3.8</div>
-                    <div class="achievement-label">Master's GPA</div>
-                </div>
-            </div>
+  <section id="achievements" class="achievements-section">
+    <div class="container">
+      <h2 class="section-title" style="color:#fff">Career Achievements</h2>
+      <div class="achievements-grid">
+        <div class="achievement-card fade-in">
+          <div class="achievement-icon">💰</div>
+          <div class="achievement-number">$3.5M+</div>
+          <div class="achievement-label">Business Value Generated</div>
         </div>
-    </section>
-      
-      <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title">Ready to Collaborate?</h2>
-            <div class="contact-cta">
-                <p>
-                    I'm always excited to work on innovative AI projects and build meaningful professional relationships. 
-                    Whether you're looking to implement cutting-edge AI solutions, need consultation on data science projects, 
-                    or want to explore emerging technologies together, let's connect and create something amazing!
-                </p>
-            </div>
-            <div class="contact-buttons">
-                <a href="mailto:trishachandur26@gmail.com" class="btn btn-primary">
-                    <i class="fas fa-envelope"></i> Get In Touch
-                </a>
-                <a href="www.linkedin.com/in/trishachandur" class="btn btn-secondary" target="_blank">
-                    <i class="fab fa-linkedin"></i> Connect on LinkedIn
-                </a>
-                <a href="http://github.com/TrishaChandur" class="btn btn-secondary" target="_blank">
-                    <i class="fab fa-github"></i> View GitHub
-                </a>
-                <a href="index.html" class="btn btn-secondary">
-                    <i class="fas fa-home"></i> Back to Home
-                </a>
-            </div>
+        <div class="achievement-card fade-in">
+          <div class="achievement-icon">🎓</div>
+          <div class="achievement-number">20+</div>
+          <div class="achievement-label">Students & Professionals Mentored</div>
         </div>
-    </section>
+        <div class="achievement-card fade-in">
+          <div class="achievement-icon">🏆</div>
+          <div class="achievement-number">95%</div>
+          <div class="achievement-label">Project Success Rate</div>
+        </div>
+        <div class="achievement-card fade-in">
+          <div class="achievement-icon">🚀</div>
+          <div class="achievement-number">70%</div>
+          <div class="achievement-label">Average Performance Improvement</div>
+        </div>
+        <div class="achievement-card fade-in">
+          <div class="achievement-icon">🤝</div>
+          <div class="achievement-number">7+</div>
+          <div class="achievement-label">Cross-Functional Teams Led</div>
+        </div>
+        <div class="achievement-card fade-in">
+          <div class="achievement-icon">⭐</div>
+          <div class="achievement-number">3.8</div>
+          <div class="achievement-label">Master's GPA</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Contact CTA -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Ready to Collaborate?</h2>
+      <div class="contact-cta">
+        <p>
+          I'm always excited to work on innovative AI projects and build meaningful professional relationships.
+          Whether you're looking to implement cutting-edge AI solutions, need consultation on data science projects,
+          or want to explore emerging technologies together, let's connect and create something amazing!
+        </p>
+      </div>
+      <div class="contact-buttons">
+        <a href="mailto:Trishachandur26@gmail.com" class="btn btn-primary">
+          <i class="fas fa-envelope"></i> Get In Touch
+        </a>
+        <a href="https://www.linkedin.com/in/trishachandur" class="btn" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i> Connect on LinkedIn
+        </a>
+        <a href="https://github.com/TrishaChandur" class="btn" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> View GitHub
+        </a>
+        <a href="index.html" class="btn">
+          <i class="fas fa-home"></i> Back to Home
+        </a>
+      </div>
+    </div>
+  </section>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
       <p>&copy; <span id="y"></span> Trisha Chandur. Built with 💜.</p>
@@ -355,18 +385,23 @@
     // Year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Simple filter
-    const chips=[...document.querySelectorAll('.chip')];
-    const cards=[...document.querySelectorAll('.card')];
-    chips.forEach(ch=>{
-      ch.addEventListener('click',()=>{
-        chips.forEach(c=>c.classList.remove('active'));
-        ch.classList.add('active');
-        const f=ch.dataset.filter;
-        cards.forEach(card=>{
-          if(f==='all'){ card.style.display='block'; return; }
-          const cats = (card.dataset.cat||'').split(' ');
-          card.style.display = cats.includes(f) ? 'block' : 'none';
+    // Filter (targets .project-card and reads data-category tokens)
+    const chips = Array.from(document.querySelectorAll('.chip'));
+    const cards = Array.from(document.querySelectorAll('.project-card'));
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+
+        const filter = chip.dataset.filter;
+        cards.forEach(card => {
+          if (filter === 'all') {
+            card.style.display = 'block';
+            return;
+          }
+          const cats = (card.getAttribute('data-category') || '').split(/\s+/);
+          card.style.display = cats.includes(filter) ? 'block' : 'none';
         });
       });
     });
