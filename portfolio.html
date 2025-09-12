@@ -8,7 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Inter',sans-serif;color:#333;background:#f8faff}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;color:#333;background:#f8faff;padding-top:70px}
 
     /* Nav */
     nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 0;box-shadow:0 2px 20px rgba(0,0,0,.08)}
@@ -16,90 +17,28 @@
     .logo{font-weight:700;font-size:1.2rem;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
     .nav-links{display:flex;gap:2rem;list-style:none}
     .nav-links a{text-decoration:none;color:#333;font-weight:500;transition: all 0.3s ease;position: relative}
-    .nav-links a:hover{color:#667eea;
-                      }
-
-            .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+    .nav-links a:hover{color:#667eea}
+    .nav-links a::after{content:'';position:absolute;width:0;height:2px;bottom:-5px;left:0;background:linear-gradient(135deg,#667eea,#764ba2);transition:width .3s ease}
+    .nav-links a:hover::after{width:100%}
 
     /* Hero */
-        .portfolio-hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 8rem 0 4rem;
-            text-align: center;
-        }
-
-        .portfolio-hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .portfolio-hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
+    .portfolio-hero{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:8rem 0 4rem;text-align:center}
+    .portfolio-hero h1{font-size:3rem;font-weight:700;margin-bottom:1rem}
+    .portfolio-hero p{font-size:1.2rem;opacity:.9;max-width:700px;margin:0 auto}
 
     /* Filter */
-            .filter-section {
-            background: white;
-            padding: 2rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
+    .filter-section{background:white;padding:2rem 0;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+    .container{max-width:1200px;margin:0 auto;padding:0 2rem}
+    .filter-buttons{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+    .filter-btn{padding:.8rem 2rem;border:2px solid #e0e7ff;background:white;color:#667eea;border-radius:50px;font-weight:600;cursor:pointer;transition:all .3s ease}
+    .filter-btn:hover,.filter-btn.active{background:linear-gradient(135deg,#667eea,#764ba2);color:white;border-color:transparent;transform:translateY(-2px)}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .filter-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.8rem 2rem;
-            border: 2px solid #e0e7ff;
-            background: white;
-            color: #667eea;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border-color: transparent;
-            transform: translateY(-2px);
-        }
-
-    /* Grid wrapper */
+    /* Grid */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:2rem;margin:3rem 0}
 
-    /* --- Your project-card styles (to match your markup) --- */
-    .project-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.08);transition:transform .25s ease,box-shadow .25s ease}
+    /* Cards */
+    .project-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.08);transition:transform .25s ease,box-shadow .25s ease;opacity:0;transform:translateY(16px)}
+    .project-card.visible{opacity:1;transform:none;transition:opacity .6s ease, transform .6s ease}
     .project-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.12)}
     .project-image{height:220px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center}
     .project-image i{font-size:3.5rem;color:#fff}
@@ -107,30 +46,32 @@
     .project-category{display:inline-block;background:#f0f4ff;color:#667eea;font-size:.75rem;font-weight:700;border-radius:999px;padding:.35rem .8rem;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.5px}
     .project-title{font-size:1.25rem;font-weight:800;margin-bottom:.5rem}
     .project-description{color:#666;margin-bottom:1rem;line-height:1.7}
-
     .project-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;background:#f8faff;border-radius:12px;padding:1rem;margin-bottom:1rem}
     .metric{text-align:center}
     .metric .metric-value{color:#667eea;font-weight:800;font-size:1.05rem;display:block}
     .metric .metric-label{font-size:.75rem;color:#666;text-transform:uppercase;letter-spacing:.4px}
-
     .project-tech{display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0 1rem}
     .tech-tag,.tag{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:999px;padding:.4rem .85rem;font-size:.8rem}
-
     .project-links{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.5rem}
     .project-link{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.2rem;border-radius:999px;border:2px solid #667eea;color:#667eea;text-decoration:none;font-weight:700}
     .project-link:hover{background:#667eea;color:#fff}
-    .link-secondary{} /* (kept for compatibility) */
 
-    /* Achievements (your section used different class names) */
+    /* Achievements */
     .achievements-section{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:4rem 0;margin:3rem 0}
     .section-title{font-size:2rem;font-weight:800;text-align:center}
     .achievements-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2rem}
-    .achievement-card{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border-radius:16px;padding:1.75rem;text-align:center}
+    .achievement-card{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border-radius:16px;padding:1.75rem;text-align:center;position:relative;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease}
+    .achievement-card:hover{transform:translateY(-4px)}
     .achievement-icon{font-size:2rem}
     .achievement-number{font-size:2rem;font-weight:800;margin:.25rem 0}
     .achievement-label{opacity:.95}
 
-    /* Contact block at bottom (reusing minimal styles) */
+    /* Count-up finish flair */
+    .achievement-card.pop{transform:translateY(-5px) scale(1.02);box-shadow:0 14px 40px rgba(0,0,0,.18)}
+    .achievement-card.pop::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.25) 30%,transparent 60%);transform:translateX(-120%);animation:shine 800ms ease 1}
+    @keyframes shine{to{transform:translateX(120%)}}
+
+    /* Contact */
     .contact-section{background:#fff;padding:3rem 0;text-align:center}
     .contact-cta{max-width:700px;margin:0 auto 1.25rem;color:#555;line-height:1.75}
     .contact-buttons{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center}
@@ -143,6 +84,7 @@
     @media (max-width:768px){
       .nav-links{display:none}
       .grid{grid-template-columns:1fr}
+      .portfolio-hero h1{font-size:2.3rem}
     }
   </style>
 </head>
@@ -161,22 +103,22 @@
   </nav>
 
   <!-- Hero -->
-  <header class="hero">
+  <header class="portfolio-hero">
     <h1>My Portfolio</h1>
     <p>Explore my journey in AI engineering, data science, and technology innovation. Each project represents a step forward in building intelligent solutions that drive real business value.</p>
   </header>
 
   <!-- Filter -->
-  <section class="filter">
+  <section class="filter-section">
     <div class="container">
-      <div class="filter-row">
+      <div class="filter-buttons" role="tablist" aria-label="Project filters">
         <!-- IMPORTANT: these data-filter values must match the tokens inside each card's data-category -->
-        <button class="chip active" data-filter="all">All Projects</button>
-        <button class="chip" data-filter="ai-ml">AI &amp; Machine Learning</button>
-        <button class="chip" data-filter="healthcare">Healthcare AI</button>
-        <button class="chip" data-filter="analytics">Business Intelligence</button>
-        <button class="chip" data-filter="data-eng">Data Engineering</button>
-        <button class="chip" data-filter="security">Security</button>
+        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Projects</button>
+        <button class="filter-btn" data-filter="AI & Machine Learning" role="tab" aria-selected="false">AI &amp; Machine Learning</button>
+        <button class="filter-btn" data-filter="Healthcare" role="tab" aria-selected="false">Healthcare AI</button>
+        <button class="filter-btn" data-filter="Analytics" role="tab" aria-selected="false">Business Intelligence</button>
+        <button class="filter-btn" data-filter="Data Engineering" role="tab" aria-selected="false">Data Engineering</button>
+        <button class="filter-btn" data-filter="Security" role="tab" aria-selected="false">Security</button>
       </div>
     </div>
   </section>
@@ -186,9 +128,9 @@
     <div class="grid" id="grid">
 
       <!-- Brain Tumor -->
-      <div class="project-card fade-in" data-category="healthcare ai-ml">
+      <div class="project-card" data-category="Healthcare AI & Machine Learning">
         <div class="project-image">
-          <i class="fas fa-brain"></i>
+          <i class="fas fa-brain" aria-hidden="true"></i>
         </div>
         <div class="project-content">
           <span class="project-category">Medical AI</span>
@@ -230,9 +172,9 @@
       </div>
 
       <!-- Offline AI Hiring Resume Screener -->
-      <div class="project-card fade-in" data-category="ai-ml">
+      <div class="project-card" data-category="AI & Machine Learning">
         <div class="project-image">
-          <i class="fas fa-file-contract"></i>
+          <i class="fas fa-file-contract" aria-hidden="true"></i>
         </div>
         <div class="project-content">
           <span class="project-category">LLM Application</span>
@@ -276,9 +218,9 @@
       </div>
 
       <!-- Interactive Dashboards – UNT Police -->
-      <div class="project-card fade-in" data-category="analytics security">
+      <div class="project-card" data-category="Analytics Security">
         <div class="project-image">
-          <i class="fas fa-shield-alt"></i>
+          <i class="fas fa-shield-alt" aria-hidden="true"></i>
         </div>
         <div class="project-content">
           <span class="project-category">Business Intelligence</span>
@@ -309,7 +251,6 @@
             <span class="tech-tag">MongoDB</span>
             <span class="tech-tag">ETL</span>
             <span class="tech-tag">Data Modeling</span>
-            <span class="tech-tag">Geo Analytics</span>
             <span class="tech-tag">Dashboard UX</span>
           </div>
 
@@ -322,9 +263,9 @@
       </div>
 
       <!-- Data Warehouse – Medallion Architecture -->
-      <div class="project-card fade-in" data-category="analytics data-eng">
+      <div class="project-card" data-category="Analytics Data Engineering">
         <div class="project-image">
-          <i class="fas fa-database"></i>
+          <i class="fas fa-database" aria-hidden="true"></i>
         </div>
         <div class="project-content">
           <span class="project-category">Data Engineering</span>
@@ -376,34 +317,46 @@
     <div class="container">
       <h2 class="section-title" style="color:#fff">Career Achievements</h2>
       <div class="achievements-grid">
-        <div class="achievement-card fade-in">
-          <div class="achievement-icon">💰</div>
-          <div class="achievement-number">$3.5M+</div>
+        <div class="achievement-card">
+          <div class="achievement-icon" aria-hidden="true">💰</div>
+          <div class="achievement-number">
+            <span class="count" data-value="3.5" data-prefix="$" data-suffix="M+">0</span>
+          </div>
           <div class="achievement-label">Business Value Generated</div>
         </div>
-        <div class="achievement-card fade-in">
-          <div class="achievement-icon">🎓</div>
-          <div class="achievement-number">20+</div>
-          <div class="achievement-label">Students & Professionals Mentored</div>
+        <div class="achievement-card">
+          <div class="achievement-icon" aria-hidden="true">🎓</div>
+          <div class="achievement-number">
+            <span class="count" data-value="20" data-suffix="+">0</span>
+          </div>
+          <div class="achievement-label">Students &amp; Professionals Mentored</div>
         </div>
-        <div class="achievement-card fade-in">
-          <div class="achievement-icon">🏆</div>
-          <div class="achievement-number">95%</div>
+        <div class="achievement-card">
+          <div class="achievement-icon" aria-hidden="true">🏆</div>
+          <div class="achievement-number">
+            <span class="count" data-value="95" data-suffix="%">0</span>
+          </div>
           <div class="achievement-label">Project Success Rate</div>
         </div>
-        <div class="achievement-card fade-in">
-          <div class="achievement-icon">🚀</div>
-          <div class="achievement-number">70%</div>
+        <div class="achievement-card">
+          <div class="achievement-icon" aria-hidden="true">🚀</div>
+          <div class="achievement-number">
+            <span class="count" data-value="70" data-suffix="%">0</span>
+          </div>
           <div class="achievement-label">Average Performance Improvement</div>
         </div>
-        <div class="achievement-card fade-in">
-          <div class="achievement-icon">🤝</div>
-          <div class="achievement-number">7+</div>
+        <div class="achievement-card">
+          <div class="achievement-icon" aria-hidden="true">🤝</div>
+          <div class="achievement-number">
+            <span class="count" data-value="7" data-suffix="+">0</span>
+          </div>
           <div class="achievement-label">Cross-Functional Teams Led</div>
         </div>
-        <div class="achievement-card fade-in">
-          <div class="achievement-icon">⭐</div>
-          <div class="achievement-number">3.8</div>
+        <div class="achievement-card">
+          <div class="achievement-icon" aria-hidden="true">⭐</div>
+          <div class="achievement-number">
+            <span class="count" data-value="3.8" data-decimals="1">0</span>
+          </div>
           <div class="achievement-label">Master's GPA</div>
         </div>
       </div>
@@ -450,25 +403,83 @@
     document.getElementById('y').textContent = new Date().getFullYear();
 
     // Filter (targets .project-card and reads data-category tokens)
-    const chips = Array.from(document.querySelectorAll('.chip'));
+    const buttons = Array.from(document.querySelectorAll('.filter-btn'));
     const cards = Array.from(document.querySelectorAll('.project-card'));
 
-    chips.forEach(chip => {
-      chip.addEventListener('click', () => {
-        chips.forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isAll = btn.dataset.filter === 'all';
+        buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected','true');
 
-        const filter = chip.dataset.filter;
         cards.forEach(card => {
-          if (filter === 'all') {
-            card.style.display = 'block';
-            return;
-          }
+          if (isAll) { card.style.display = 'block'; return; }
           const cats = (card.getAttribute('data-category') || '').split(/\s+/);
-          card.style.display = cats.includes(filter) ? 'block' : 'none';
+          card.style.display = cats.includes(btn.dataset.filter) ? 'block' : 'none';
         });
       });
     });
+
+    // Reveal on scroll for cards
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.project-card').forEach(el => io.observe(el));
+
+    // ---- Achievements count-up with easing, prefix/suffix, decimals + finish pop ----
+    (function () {
+      const section = document.getElementById('achievements');
+      if (!section) return;
+      let played = false;
+
+      function animateCount(el) {
+        const to = parseFloat(el.dataset.value || '0');
+        const decimals = parseInt(el.dataset.decimals || (String(to).includes('.') ? (String(to).split('.')[1] || '').length : 0), 10);
+        const prefix = el.dataset.prefix || '';
+        const suffix = el.dataset.suffix || '';
+
+        const duration = 1500; // ms
+        const start = performance.now();
+
+        function frame(now) {
+          const t = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+          const value = to * eased;
+
+          el.textContent =
+            prefix +
+            value.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) +
+            suffix;
+
+          if (t < 1) {
+            requestAnimationFrame(frame);
+          } else {
+            const card = el.closest('.achievement-card');
+            if (card) card.classList.add('pop');
+          }
+        }
+        requestAnimationFrame(frame);
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !played) {
+            played = true;
+            section.querySelectorAll('.count').forEach(animateCount);
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.25 });
+
+      observer.observe(section);
+    })();
   </script>
 </body>
 </html>
