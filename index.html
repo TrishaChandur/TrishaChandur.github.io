@@ -7,29 +7,61 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
+    /* roles line: one-time slide-in from right, then stop */
+.hero-roles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: .75rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: rgba(255,255,255,.92);
+}
+
+.hero-roles > span {
+  opacity: 0;
+  transform: translateX(40px);
+  animation: slideInOnce .6s ease-out forwards;
+}
+
+/* small stagger so it looks like a smooth right-to-left reveal */
+.hero-roles > span:nth-child(1) { animation-delay: .0s; }
+.hero-roles > span:nth-child(2) { animation-delay: .08s; }
+.hero-roles > span:nth-child(3) { animation-delay: .16s; }
+.hero-roles > span:nth-child(4) { animation-delay: .24s; }
+.hero-roles > span:nth-child(5) { animation-delay: .32s; }
+.hero-roles > span:nth-child(6) { animation-delay: .40s; }
+.hero-roles > span:nth-child(7) { animation-delay: .48s; }
+
+/* the bar separator style */
+.hero-roles .divider {
+  color: rgba(255,255,255,.55);
+  font-weight: 600;
+  transform: translateX(40px);
+}
+
+/* keyframes: move from right -> settle in place, keep final state */
+@keyframes slideInOnce {
+  0%   { opacity: 0; transform: translateX(40px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* accessibility: disable motion if user requests reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-roles > span {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:'Inter',sans-serif;line-height:1.6;color:#333;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh}
 
     /* Nav */
     nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 0;box-shadow:0 2px 20px rgba(0,0,0,.1)}
     .nav-container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 2rem}
-    /* Shimmer effect for subtitle under name */
-.hero-roles {
-  font-size: 1.3rem;
-  font-weight: 600;
-  display: inline-block;
-  background: linear-gradient(90deg, #ffd700, #ffffff, #ffd700);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer 3s linear infinite;
-}
-
-@keyframes shimmer {
-  to {
-    background-position: 200% center;
-  }
-}
     .logo{font-size:1.5rem;font-weight:700;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
     .nav-links{display:flex;list-style:none;gap:2rem}
     .nav-links a{text-decoration:none;color:#333;font-weight:500;transition:all .3s ease;position:relative}
@@ -147,13 +179,13 @@
         <img src="profilepic.png" alt="Trisha Chandur" class="profile-img" />
       </div>
       <h1>Trisha Chandur</h1>
-     <p class="subtitle hero-roles">
-            <span>👩‍💻 Data Analyst</span>
-            <span class="sep">|</span>
-            <span>🌐 Technology Connector</span>
-            <span class="sep">|</span>
-            <span>🚀 Process Optimizer</span>
-          </p>
+      <div class="hero-roles">
+        <span>🤖 Data Analyst</span>
+        <span class="divider">|</span>
+        <span>🌐 Technology Connector</span>
+        <span class="divider">|</span>
+        <span>🚀 Process Optimizer</span>
+      </div>
       <p class="description">
         Turning business problems into data-driven solutions with experience in
         <strong>Python</strong>, <strong>SQL</strong>, <strong>machine learning</strong>, and <strong>analytics</strong>.
