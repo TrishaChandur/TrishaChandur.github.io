@@ -13,6 +13,23 @@
     /* Nav */
     nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 0;box-shadow:0 2px 20px rgba(0,0,0,.1)}
     .nav-container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 2rem}
+    /* Shimmer effect for subtitle under name */
+.hero-roles {
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: inline-block;
+  background: linear-gradient(90deg, #ffd700, #ffffff, #ffd700);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
     .logo{font-size:1.5rem;font-weight:700;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
     .nav-links{display:flex;list-style:none;gap:2rem}
     .nav-links a{text-decoration:none;color:#333;font-weight:500;transition:all .3s ease;position:relative}
@@ -130,7 +147,13 @@
         <img src="profilepic.png" alt="Trisha Chandur" class="profile-img" />
       </div>
       <h1>Trisha Chandur</h1>
-      <p class="subtitle">👩‍💻 Data Analyst | 🌐 Technology Connector | 🚀 Process Optimizer</p>
+     <p class="subtitle hero-roles">
+            <span>👩‍💻 Data Analyst</span>
+            <span class="sep">|</span>
+            <span>🌐 Technology Connector</span>
+            <span class="sep">|</span>
+            <span>🚀 Process Optimizer</span>
+          </p>
       <p class="description">
         Turning business problems into data-driven solutions with experience in
         <strong>Python</strong>, <strong>SQL</strong>, <strong>machine learning</strong>, and <strong>analytics</strong>.
