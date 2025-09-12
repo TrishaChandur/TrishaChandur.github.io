@@ -101,6 +101,71 @@
     <h1>My Portfolio</h1>
     <p>Explore my journey in AI engineering, data science, and technology innovation. Each project represents a step forward in building intelligent solutions that drive real business value.</p>
   </header>
+  
+<!-- Experience -->
+<section id="experience" class="container" style="margin-top:3rem;">
+  <h2 class="section-title" style="text-align:center;margin-bottom:2rem;">Experience</h2>
+
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:2rem;">
+    <!-- Role 1 -->
+    <article class="card">
+      <div class="thumb" style="height:120px;">
+        <div style="color:#fff;font-weight:800;">Company A</div>
+      </div>
+      <div class="body">
+        <span class="kicker">Business Intelligence Analyst · Jan 2024 – Present</span>
+        <h3 class="title" style="margin-top:.35rem;">Built analytics that reduced report turnaround by 40%</h3>
+        <ul class="desc" style="margin-left:1rem;">
+          <li>Designed Tableau/Power BI suite used by 50+ stakeholders.</li>
+          <li>Automated ETL (SQL + Python), cutting manual effort 12 hrs/wk.</li>
+          <li>Partnered with ops to improve on-time SLAs from 82%→95%.</li>
+        </ul>
+        <div class="tech" style="margin-top:1rem;">
+          <span class="tag">Tableau</span><span class="tag">SQL</span><span class="tag">Python</span>
+        </div>
+        <div class="links">
+          <!-- Replace src with your redacted image/PDF path -->
+          <a class="btn primary" href="#proof-a" data-open="proof-a"><i class="fas fa-file-shield"></i> View proof</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Role 2 -->
+    <article class="card">
+      <div class="thumb" style="height:120px;">
+        <div style="color:#fff;font-weight:800;">Company B</div>
+      </div>
+      <div class="body">
+        <span class="kicker">Data Analyst Intern · May 2023 – Dec 2023</span>
+        <h3 class="title" style="margin-top:.35rem;">Customer churn model lowered attrition by 8%</h3>
+        <ul class="desc" style="margin-left:1rem;">
+          <li>Built propensity model (XGBoost) and retention dashboard.</li>
+          <li>Created data quality monitors (alerts + SLA checks).</li>
+        </ul>
+        <div class="tech" style="margin-top:1rem;">
+          <span class="tag">XGBoost</span><span class="tag">Python</span><span class="tag">Power BI</span>
+        </div>
+        <div class="links">
+          <a class="btn" href="#proof-b" data-open="proof-b"><i class="fas fa-file-shield"></i> View proof</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- Minimal modal/lightbox (reuseable) -->
+<div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:center;justify-content:center;padding:1rem;">
+  <div style="max-width:960px;width:100%;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35);">
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:0.9rem 1rem;border-bottom:1px solid #eee;">
+      <strong>Redacted proof</strong>
+      <button id="lb-close" class="btn" style="border:none;background:#efefef;">Close</button>
+    </div>
+    <div style="max-height:80vh;overflow:auto;background:#111;display:flex;align-items:center;justify-content:center;">
+      <!-- Swap these preview images with your redacted assets -->
+      <img id="lb-img" src="" alt="Proof document" style="width:100%;height:auto;display:block;"/>
+    </div>
+  </div>
+</div>
 
   <!-- Filter -->
   <section class="filter">
@@ -406,5 +471,38 @@
       });
     });
   </script>
+
+  <script>
+    // Map IDs to your redacted images/PDF previews
+    const proofs = {
+      "proof-a": "offer-letter-redacted.png",  // replace with your file
+      "proof-b": "experience-proof-redacted.png"
+    };
+
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const closeBtn = document.getElementById('lb-close');
+
+    document.querySelectorAll('[data-open]').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const key = btn.getAttribute('data-open');
+        const src = proofs[key];
+        if (!src) return;
+        lbImg.src = src;
+        lb.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const close = ()=>{ 
+      lb.style.display='none'; 
+      lbImg.src=''; 
+      document.body.style.overflow='auto'; 
+    };
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', (e)=>{ if(e.target===lb) close(); });
+  </script>
+  
 </body>
 </html>
